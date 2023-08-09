@@ -427,6 +427,90 @@ p {
     font-size: 16px;
 }
 
+  /* Animation */
+  /* Vers le haut */
+  .hidden-up {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20%);
+    transition: all 1s;
+  } 
+
+  @media(prefers-reduced-motion) {
+    .hidden-up {
+      transition: none;
+    }
+  }
+
+  .show-up {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+  /* Animation */
+  /* Vers le bas */
+  .hidden-down {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-20%);
+    transition: all 1s;
+  } 
+
+  @media(prefers-reduced-motion) {
+    .hidden-down {
+      transition: none;
+    }
+  }
+
+  .show-down {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+    /* Animation */
+    /* De gauche */
+    .hidden-left {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-100%);
+        transition: all 1s;
+    } 
+
+    @media(prefers-reduced-motion) {
+    .hidden-left {
+        transition: none;
+    }
+    }
+
+    .show-left {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+
+    /* Animation */
+    /*De droite */
+    .hidden-right {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(100%);
+        transition: all 1s;
+    } 
+
+    @media(prefers-reduced-motion) {
+    .hidden-right {
+        transition: none;
+    }
+    }
+
+    .show-right {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+
 @media (max-height: 915px) {
     .logoText { 
         display: none;

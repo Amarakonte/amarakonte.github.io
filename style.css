@@ -492,6 +492,11 @@ p {
 
     /* Animation */
     /*De droite */
+    /*Pour éviter le débordement d'éléments cachés */
+    .banner, .about {
+        overflow: hidden;
+    }
+
     .hidden-right {
         opacity: 0;
         filter: blur(5px);

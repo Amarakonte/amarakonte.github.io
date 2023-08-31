@@ -530,6 +530,11 @@ p {
         min-height: 550%;
     }
 }
+@media (max-width: 425px) {
+    .banner {
+        height: 1500px;
+    }
+}
 
 @media (max-width: 1086px) {
     .banner {

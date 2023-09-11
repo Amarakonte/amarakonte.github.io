@@ -526,6 +526,7 @@ p {
     .btn {
         display: none;
     }
+    
     section {
         min-height: 550%;
     }
@@ -546,6 +547,10 @@ p {
     }
 
     p.mobile {
+        display: none;
+    }
+
+    a.mobile {
         display: none;
     }
 
